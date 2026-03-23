@@ -14,8 +14,10 @@
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        'brand-yellow': '#F5A623',
                         'brand-orange': '#E8751A',
+                        'brand-orange-dark': '#C4600F',
+                        'brand-blue': '#1E5FAA',
+                        'brand-blue-light': '#2B7CD4',
                         'brand-dark': '#0D0D0D',
                         'brand-gray': { 100: '#E0E0E0', 200: '#B0B0B0', 300: '#6B6B6B', 400: '#2A2A2A', 500: '#1A1A1A', 600: '#141414' }
                     }
@@ -25,14 +27,14 @@
     </script>
     <style>
         .hero-overlay { background: linear-gradient(135deg, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.7) 50%, rgba(13,13,13,0.5) 100%); }
-        .card-shine { background: linear-gradient(135deg, rgba(245,166,35,0.08) 0%, transparent 60%); }
-        .glow-border { box-shadow: 0 0 30px rgba(245,166,35,0.15), inset 0 1px 0 rgba(255,255,255,0.05); }
-        .cta-glow { box-shadow: 0 0 40px rgba(245,166,35,0.3); }
+        .card-shine { background: linear-gradient(135deg, rgba(30,95,170,0.08) 0%, transparent 60%); }
+        .glow-border { box-shadow: 0 0 30px rgba(30,95,170,0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
+        .cta-glow { box-shadow: 0 0 40px rgba(232,117,26,0.35); }
         @keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
         .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
         .service-card:hover .service-img { transform: scale(1.08); }
         .nav-link { position: relative; }
-        .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:#F5A623; transition:width 0.3s; }
+        .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:2px; background:#E8751A; transition:width 0.3s; }
         .nav-link:hover::after { width:100%; }
     </style>
 </head>
@@ -44,21 +46,21 @@
             <div class="flex items-center justify-between h-16 lg:h-20">
                 <!-- Logo -->
                 <a href="#inicio" class="flex items-center gap-2 group">
-                    <div class="w-10 h-10 bg-gradient-to-br from-brand-yellow to-brand-orange rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-brand-yellow/30 transition-shadow">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-blue to-brand-blue-light rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-brand-blue/30 transition-shadow">
                         <i class="fa-solid fa-bolt text-brand-dark text-lg font-bold"></i>
                     </div>
-                    <span class="text-xl font-extrabold tracking-tight"><span class="text-brand-yellow">ISI-COM</span> SPA</span>
+                    <span class="text-xl font-extrabold tracking-tight"><span class="text-brand-orange">ISI</span><span class="text-brand-blue">-COM</span> SPA</span>
                 </a>
                 <!-- Nav Desktop -->
                 <nav class="hidden lg:flex items-center gap-8">
-                    <a href="#inicio" class="nav-link text-sm font-medium text-brand-gray-100 hover:text-brand-yellow transition">Inicio</a>
-                    <a href="#servicios" class="nav-link text-sm font-medium text-brand-gray-200 hover:text-brand-yellow transition">Servicios</a>
-                    <a href="#equipos" class="nav-link text-sm font-medium text-brand-gray-200 hover:text-brand-yellow transition">Equipos</a>
-                    <a href="#contacto" class="nav-link text-sm font-medium text-brand-gray-200 hover:text-brand-yellow transition">Contacto</a>
+                    <a href="#inicio" class="nav-link text-sm font-medium text-brand-gray-100 hover:text-brand-orange transition">Inicio</a>
+                    <a href="#servicios" class="nav-link text-sm font-medium text-brand-gray-200 hover:text-brand-orange transition">Servicios</a>
+                    <a href="#equipos" class="nav-link text-sm font-medium text-brand-gray-200 hover:text-brand-orange transition">Equipos</a>
+                    <a href="#contacto" class="nav-link text-sm font-medium text-brand-gray-200 hover:text-brand-orange transition">Contacto</a>
                 </nav>
                 <div class="hidden lg:flex items-center gap-4">
                     <a href="https://wa.me/56947623264" target="_blank" class="text-brand-gray-200 hover:text-green-400 transition"><i class="fa-brands fa-whatsapp text-xl"></i></a>
-                    <a href="#contacto" class="bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-dark font-bold text-sm px-6 py-2.5 rounded-lg hover:shadow-lg hover:shadow-brand-yellow/25 hover:-translate-y-0.5 transition-all duration-300">Cotizar</a>
+                    <a href="#contacto" class="bg-gradient-to-r from-brand-orange to-brand-orange-dark text-white font-bold text-sm px-6 py-2.5 rounded-lg hover:shadow-lg hover:shadow-brand-orange/25 hover:-translate-y-0.5 transition-all duration-300">Cotizar</a>
                 </div>
                 <!-- Burger Mobile -->
                 <button id="menu-toggle" class="lg:hidden text-brand-gray-100 text-2xl"><i class="fa-solid fa-bars"></i></button>
@@ -67,11 +69,11 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-brand-gray-600 border-t border-white/5">
             <div class="px-4 py-4 space-y-3">
-                <a href="#inicio" class="block text-sm font-medium py-2 hover:text-brand-yellow transition">Inicio</a>
-                <a href="#servicios" class="block text-sm font-medium py-2 hover:text-brand-yellow transition">Servicios</a>
-                <a href="#equipos" class="block text-sm font-medium py-2 hover:text-brand-yellow transition">Equipos</a>
-                <a href="#contacto" class="block text-sm font-medium py-2 hover:text-brand-yellow transition">Contacto</a>
-                <a href="#contacto" class="block text-center bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-dark font-bold text-sm px-6 py-3 rounded-lg mt-2">Cotizar</a>
+                <a href="#inicio" class="block text-sm font-medium py-2 hover:text-brand-orange transition">Inicio</a>
+                <a href="#servicios" class="block text-sm font-medium py-2 hover:text-brand-orange transition">Servicios</a>
+                <a href="#equipos" class="block text-sm font-medium py-2 hover:text-brand-orange transition">Equipos</a>
+                <a href="#contacto" class="block text-sm font-medium py-2 hover:text-brand-orange transition">Contacto</a>
+                <a href="#contacto" class="block text-center bg-gradient-to-r from-brand-orange to-brand-orange-dark text-white font-bold text-sm px-6 py-3 rounded-lg mt-2">Cotizar</a>
             </div>
         </div>
     </header>
@@ -79,94 +81,94 @@
     <!-- ═══════════════════ HERO SECTION ═══════════════════ -->
     <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
         <!-- REEMPLAZAR: hero-bg.png con imagen profesional de faena minera / generadores en terreno -->
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('hero-bg.png');"></div>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('generador-exterior.jpg');"></div>
         <div class="hero-overlay absolute inset-0"></div>
         <!-- Decorative grid -->
         <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(255,255,255,0.1) 50px, rgba(255,255,255,0.1) 51px), repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255,255,255,0.1) 50px, rgba(255,255,255,0.1) 51px);"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 lg:pt-36 lg:pb-24">
             <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-2 bg-brand-yellow/10 border border-brand-yellow/20 rounded-full px-4 py-1.5 mb-6 animate-fade-in-up">
-                    <span class="w-2 h-2 bg-brand-yellow rounded-full animate-pulse"></span>
-                    <span class="text-brand-yellow text-xs font-semibold uppercase tracking-widest">Soporte Industrial 24/7</span>
+                <div class="inline-flex items-center gap-2 bg-brand-blue/10 border border-brand-blue/20 rounded-full px-4 py-1.5 mb-6 animate-fade-in-up">
+                    <span class="w-2 h-2 bg-brand-blue rounded-full animate-pulse"></span>
+                    <span class="text-brand-blue-light text-xs font-semibold uppercase tracking-widest">Soporte Industrial 24/7</span>
                 </div>
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tight mb-6 animate-fade-in-up" style="animation-delay:0.1s">
-                    Energía y Equipamiento <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-orange">Robusto</span> para tus Proyectos
+                    Energía y Equipamiento <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-orange-dark">Robusto</span> para tus Proyectos
                 </h1>
                 <p class="text-lg sm:text-xl text-brand-gray-200 leading-relaxed mb-10 max-w-2xl animate-fade-in-up" style="animation-delay:0.2s">
                     Arriendo de Grupos Electrógenos y Torres de Iluminación para minería, construcción e industria. Operamos donde más nos necesitas.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style="animation-delay:0.3s">
-                    <a href="#servicios" class="bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-dark font-bold px-8 py-4 rounded-lg text-center hover:shadow-xl hover:shadow-brand-yellow/20 hover:-translate-y-1 transition-all duration-300 text-base">
+                    <a href="#servicios" class="bg-gradient-to-r from-brand-orange to-brand-orange-dark text-white font-bold px-8 py-4 rounded-lg text-center hover:shadow-xl hover:shadow-brand-orange/20 hover:-translate-y-1 transition-all duration-300 text-base">
                         <i class="fa-solid fa-bolt mr-2"></i>Ver Servicios
                     </a>
-                    <a href="#contacto" class="border-2 border-brand-gray-300 text-brand-gray-100 font-bold px-8 py-4 rounded-lg text-center hover:border-brand-yellow hover:text-brand-yellow transition-all duration-300 text-base">
+                    <a href="#contacto" class="border-2 border-brand-blue text-brand-gray-100 font-bold px-8 py-4 rounded-lg text-center hover:bg-brand-blue hover:text-white transition-all duration-300 text-base">
                         <i class="fa-solid fa-file-invoice mr-2"></i>Cotizar Equipos
                     </a>
                 </div>
                 <!-- Stats -->
                 <div class="grid grid-cols-3 gap-6 mt-16 pt-10 border-t border-white/10 animate-fade-in-up" style="animation-delay:0.5s">
-                    <div><p class="text-2xl sm:text-3xl font-black text-brand-yellow">15+</p><p class="text-xs sm:text-sm text-brand-gray-300 mt-1">Años de experiencia</p></div>
-                    <div><p class="text-2xl sm:text-3xl font-black text-brand-yellow">500+</p><p class="text-xs sm:text-sm text-brand-gray-300 mt-1">Proyectos ejecutados</p></div>
-                    <div><p class="text-2xl sm:text-3xl font-black text-brand-yellow">24/7</p><p class="text-xs sm:text-sm text-brand-gray-300 mt-1">Soporte técnico</p></div>
+                    <div><p class="text-2xl sm:text-3xl font-black text-brand-orange">15+</p><p class="text-xs sm:text-sm text-brand-gray-300 mt-1">Años de experiencia</p></div>
+                    <div><p class="text-2xl sm:text-3xl font-black text-brand-orange">500+</p><p class="text-xs sm:text-sm text-brand-gray-300 mt-1">Proyectos ejecutados</p></div>
+                    <div><p class="text-2xl sm:text-3xl font-black text-brand-orange">24/7</p><p class="text-xs sm:text-sm text-brand-gray-300 mt-1">Soporte técnico</p></div>
                 </div>
             </div>
         </div>
         <!-- Scroll indicator -->
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-            <i class="fa-solid fa-chevron-down text-brand-yellow/50 text-xl"></i>
+            <i class="fa-solid fa-chevron-down text-brand-orange/50 text-xl"></i>
         </div>
     </section>
 
     <!-- ═══════════════════ SERVICIOS PRINCIPALES ═══════════════════ -->
     <section id="servicios" class="py-20 lg:py-28 bg-brand-gray-600 relative">
-        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-yellow/30 to-transparent"></div>
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-blue/40 to-transparent"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-brand-yellow text-xs font-bold uppercase tracking-[0.2em]">Nuestro Fuerte</span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mt-3 tracking-tight">Servicios <span class="text-brand-yellow">Principales</span></h2>
+                <span class="text-brand-orange text-xs font-bold uppercase tracking-[0.2em]">Nuestro Fuerte</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mt-3 tracking-tight">Servicios <span class="text-brand-orange">Principales</span></h2>
                 <p class="text-brand-gray-200 mt-4 max-w-2xl mx-auto">Equipos de alta potencia listos para operar en las condiciones más exigentes del sector minero e industrial.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
                 <!-- Card 1: Generadores -->
-                <div class="service-card group relative bg-brand-gray-500 rounded-2xl overflow-hidden glow-border hover:shadow-brand-yellow/20 hover:shadow-2xl transition-all duration-500">
+                <div class="service-card group relative bg-brand-gray-500 rounded-2xl overflow-hidden glow-border hover:shadow-brand-orange/20 hover:shadow-2xl transition-all duration-500">
                     <div class="card-shine absolute inset-0 rounded-2xl pointer-events-none"></div>
                     <div class="overflow-hidden h-64 sm:h-72">
                         <!-- REEMPLAZAR: generador.png con foto real del generador -->
-                        <img src="generador.png" alt="Grupo Electrógeno Industrial" class="service-img w-full h-full object-cover transition-transform duration-700">
+                        <img src="generador.jpg" alt="Grupo Electrógeno ISI-COM SPA EG-37" class="service-img w-full h-full object-cover transition-transform duration-700">
                     </div>
                     <div class="p-6 sm:p-8 relative">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-brand-yellow/10 rounded-xl flex items-center justify-center"><i class="fa-solid fa-car-battery text-brand-yellow text-xl"></i></div>
+                            <div class="w-12 h-12 bg-brand-orange/10 rounded-xl flex items-center justify-center"><i class="fa-solid fa-car-battery text-brand-orange text-xl"></i></div>
                             <h3 class="text-xl sm:text-2xl font-bold">Arriendo de Generadores</h3>
                         </div>
-                        <p class="text-brand-gray-200 leading-relaxed mb-6">Grupos electrógenos desde 20 kVA hasta 2000 kVA. Equipos diésel de última generación con monitoreo remoto, transporte e instalación incluida.</p>
+                        <p class="text-brand-gray-200 leading-relaxed mb-6">Grupos electrógenos desde 20 kVA hasta 550 kVA. Equipos diésel con jaula de protección, bandeja de contención, señalética de seguridad y transporte incluido.</p>
                         <ul class="space-y-2 mb-6 text-sm text-brand-gray-200">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow text-xs"></i>Potencias de 20 a 2000 kVA</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow text-xs"></i>Transporte e instalación en faena</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow text-xs"></i>Monitoreo remoto 24/7</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange text-xs"></i>Potencias de 20 a 550 kVA</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange text-xs"></i>Jaula de protección y bandeja de contención</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange text-xs"></i>Transporte e instalación en faena</li>
                         </ul>
-                        <a href="#contacto" class="inline-flex items-center gap-2 text-brand-yellow font-semibold hover:gap-3 transition-all">Cotizar ahora <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                        <a href="#contacto" class="inline-flex items-center gap-2 text-brand-orange font-semibold hover:gap-3 transition-all">Cotizar ahora <i class="fa-solid fa-arrow-right text-sm"></i></a>
                     </div>
                 </div>
                 <!-- Card 2: Torres de Iluminación -->
-                <div class="service-card group relative bg-brand-gray-500 rounded-2xl overflow-hidden glow-border hover:shadow-brand-yellow/20 hover:shadow-2xl transition-all duration-500">
+                <div class="service-card group relative bg-brand-gray-500 rounded-2xl overflow-hidden glow-border hover:shadow-brand-orange/20 hover:shadow-2xl transition-all duration-500">
                     <div class="card-shine absolute inset-0 rounded-2xl pointer-events-none"></div>
                     <div class="overflow-hidden h-64 sm:h-72">
                         <!-- REEMPLAZAR: torre-iluminacion.png con foto real de torre de iluminación -->
-                        <img src="torre-iluminacion.png" alt="Torre de Iluminación Industrial" class="service-img w-full h-full object-cover transition-transform duration-700">
+                        <img src="generador-motor.jpg" alt="Motor generador ISI-COM SPA EG-37" class="service-img w-full h-full object-cover transition-transform duration-700">
                     </div>
                     <div class="p-6 sm:p-8 relative">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-brand-yellow/10 rounded-xl flex items-center justify-center"><i class="fa-solid fa-lightbulb text-brand-yellow text-xl"></i></div>
-                            <h3 class="text-xl sm:text-2xl font-bold">Torres de Iluminación</h3>
+                            <div class="w-12 h-12 bg-brand-orange/10 rounded-xl flex items-center justify-center"><i class="fa-solid fa-gears text-brand-orange text-xl"></i></div>
+                            <h3 class="text-xl sm:text-2xl font-bold">Mantención y Servicio Técnico</h3>
                         </div>
-                        <p class="text-brand-gray-200 leading-relaxed mb-6">Torres de iluminación LED de alto rendimiento para faenas mineras, construcción y eventos. Iluminación potente con bajo consumo y máxima autonomía.</p>
+                        <p class="text-brand-gray-200 leading-relaxed mb-6">Servicio técnico especializado con mantenciones preventivas y correctivas. Equipos listos para operar con los más altos estándares de seguridad.</p>
                         <ul class="space-y-2 mb-6 text-sm text-brand-gray-200">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow text-xs"></i>Tecnología LED de alto rendimiento</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow text-xs"></i>Mástil telescópico hasta 9 metros</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow text-xs"></i>Operación autónoma extendida</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange text-xs"></i>Mantención preventiva y correctiva</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange text-xs"></i>Técnicos certificados en terreno</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange text-xs"></i>Respuesta rápida 24/7</li>
                         </ul>
-                        <a href="#contacto" class="inline-flex items-center gap-2 text-brand-yellow font-semibold hover:gap-3 transition-all">Cotizar ahora <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                        <a href="#contacto" class="inline-flex items-center gap-2 text-brand-orange font-semibold hover:gap-3 transition-all">Cotizar ahora <i class="fa-solid fa-arrow-right text-sm"></i></a>
                     </div>
                 </div>
             </div>
@@ -177,42 +179,42 @@
     <section id="equipos" class="py-20 lg:py-28 bg-brand-dark relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-brand-yellow text-xs font-bold uppercase tracking-[0.2em]">Más allá de la energía</span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mt-3 tracking-tight">Soluciones <span class="text-brand-yellow">Integrales</span></h2>
+                <span class="text-brand-blue-light text-xs font-bold uppercase tracking-[0.2em]">Más allá de la energía</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mt-3 tracking-tight">Soluciones <span class="text-brand-blue-light">Integrales</span></h2>
                 <p class="text-brand-gray-200 mt-4 max-w-2xl mx-auto">Complementamos nuestra oferta con servicios especializados para cubrir todas las necesidades de tu operación.</p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Mantenciones -->
-                <div class="group bg-brand-gray-500 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-yellow/30 transition-all duration-500 hover:-translate-y-1">
+                <div class="group bg-brand-gray-500 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-blue/40 transition-all duration-500 hover:-translate-y-1">
                     <div class="overflow-hidden h-48">
-                        <img src="mantencion.png" alt="Mantención de Equipos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="generador-jaula.jpg" alt="Generador con jaula de protección ISI-COM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     </div>
                     <div class="p-6">
-                        <div class="w-10 h-10 bg-brand-yellow/10 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-wrench text-brand-yellow"></i></div>
-                        <h3 class="text-lg font-bold mb-2">Mantenciones de Equipos</h3>
-                        <p class="text-brand-gray-200 text-sm leading-relaxed">Mantenimiento preventivo y correctivo para generadores, motores y equipos industriales con técnicos certificados.</p>
+                        <div class="w-10 h-10 bg-brand-blue/10 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-shield-halved text-brand-blue-light"></i></div>
+                        <h3 class="text-lg font-bold mb-2">Jaulas y Kit Minero</h3>
+                        <p class="text-brand-gray-200 text-sm leading-relaxed">Fabricación de jaulas de protección, bandejas de contención y estructuras metálicas certificadas para norma minera.</p>
                     </div>
                 </div>
                 <!-- Bancos de Carga -->
-                <div class="group bg-brand-gray-500 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-yellow/30 transition-all duration-500 hover:-translate-y-1">
+                <div class="group bg-brand-gray-500 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-blue/40 transition-all duration-500 hover:-translate-y-1">
                     <div class="overflow-hidden h-48">
-                        <img src="banco-carga.png" alt="Bancos de Carga" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="generador-perspectiva.jpg" alt="Generador ISI-COM vista perspectiva" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     </div>
                     <div class="p-6">
-                        <div class="w-10 h-10 bg-brand-yellow/10 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-gauge-high text-brand-yellow"></i></div>
-                        <h3 class="text-lg font-bold mb-2">Bancos de Carga</h3>
-                        <p class="text-brand-gray-200 text-sm leading-relaxed">Pruebas de carga para verificar rendimiento y capacidad de generadores. Equipos de prueba desde 100 kW hasta 2000 kW.</p>
+                        <div class="w-10 h-10 bg-brand-blue/10 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-gauge-high text-brand-blue-light"></i></div>
+                        <h3 class="text-lg font-bold mb-2">Bancos de Carga 550 kVA</h3>
+                        <p class="text-brand-gray-200 text-sm leading-relaxed">Bancos de carga de hasta 550 kVA para pruebas de rendimiento y verificación de capacidad de generadores en terreno.</p>
                     </div>
                 </div>
                 <!-- Kit Minero -->
-                <div class="group bg-brand-gray-500 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-yellow/30 transition-all duration-500 hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
+                <div class="group bg-brand-gray-500 rounded-2xl overflow-hidden border border-white/5 hover:border-brand-blue/40 transition-all duration-500 hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
                     <div class="overflow-hidden h-48">
-                        <img src="fabricacion.png" alt="Fabricación Kit Minero" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="tableros.jpg" alt="Tableros Eléctricos Certificados TDF" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     </div>
                     <div class="p-6">
-                        <div class="w-10 h-10 bg-brand-yellow/10 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-industry text-brand-yellow"></i></div>
-                        <h3 class="text-lg font-bold mb-2">Fabricación Kit Minero</h3>
-                        <p class="text-brand-gray-200 text-sm leading-relaxed">Jaulas de protección, bandejas portacables y estructuras metálicas a medida para operaciones mineras bajo norma.</p>
+                        <div class="w-10 h-10 bg-brand-blue/10 rounded-lg flex items-center justify-center mb-3"><i class="fa-solid fa-bolt text-brand-blue-light"></i></div>
+                        <h3 class="text-lg font-bold mb-2">Tableros Eléctricos Certificados</h3>
+                        <p class="text-brand-gray-200 text-sm leading-relaxed">Tableros de distribución y fuerza (TDF) certificados para normas mineras. Parada de emergencia, 220V y 380V.</p>
                     </div>
                 </div>
             </div>
@@ -222,7 +224,7 @@
     <!-- ═══════════════════ CTA BANNER + CONTACTO ═══════════════════ -->
     <section id="contacto" class="relative">
         <!-- CTA Banner -->
-        <div class="bg-gradient-to-r from-brand-yellow to-brand-orange py-16 lg:py-20 relative overflow-hidden">
+        <div class="bg-gradient-to-r from-brand-orange to-brand-orange-dark py-16 lg:py-20 relative overflow-hidden">
             <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot; fill=&quot;%23000&quot;/%3E%3C/g%3E%3C/svg%3E');"></div>
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-dark tracking-tight">¿Necesitas energía para tu proyecto?</h2>
@@ -238,15 +240,15 @@
                     <!-- REEMPLAZAR: action del form con endpoint real (Formspree, Netlify Forms, etc.) -->
                     <form action="https://wa.me/56947623264" method="POST" class="space-y-5">
                         <div class="grid sm:grid-cols-2 gap-5">
-                            <div><label class="block text-sm font-medium mb-1.5 text-brand-gray-200">Nombre completo</label><input type="text" name="nombre" required class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-brand-gray-300 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition" placeholder="Tu nombre"></div>
-                            <div><label class="block text-sm font-medium mb-1.5 text-brand-gray-200">Empresa</label><input type="text" name="empresa" class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-brand-gray-300 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition" placeholder="Nombre de tu empresa"></div>
+                            <div><label class="block text-sm font-medium mb-1.5 text-brand-gray-200">Nombre completo</label><input type="text" name="nombre" required class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-brand-gray-300 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition" placeholder="Tu nombre"></div>
+                            <div><label class="block text-sm font-medium mb-1.5 text-brand-gray-200">Empresa</label><input type="text" name="empresa" class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-brand-gray-300 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition" placeholder="Nombre de tu empresa"></div>
                         </div>
                         <div class="grid sm:grid-cols-2 gap-5">
-                            <div><label class="block text-sm font-medium mb-1.5 text-brand-gray-200">Teléfono</label><input type="tel" name="telefono" class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-brand-gray-300 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition" placeholder="+56 9 1234 5678"></div>
-                            <div><label class="block text-sm font-medium mb-1.5 text-brand-gray-200">Email</label><input type="email" name="email" required class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-brand-gray-300 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition" placeholder="tu@email.com"></div>
+                            <div><label class="block text-sm font-medium mb-1.5 text-brand-gray-200">Teléfono</label><input type="tel" name="telefono" class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-brand-gray-300 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition" placeholder="+56 9 1234 5678"></div>
+                            <div><label class="block text-sm font-medium mb-1.5 text-brand-gray-200">Email</label><input type="email" name="email" required class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-brand-gray-300 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition" placeholder="tu@email.com"></div>
                         </div>
                         <div><label class="block text-sm font-medium mb-1.5 text-brand-gray-200">Servicio de interés</label>
-                            <select name="servicio" class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition">
+                            <select name="servicio" class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition">
                                 <option value="">Selecciona un servicio</option>
                                 <option>Arriendo de Generadores</option>
                                 <option>Torres de Iluminación</option>
@@ -256,8 +258,8 @@
                                 <option>Otro</option>
                             </select>
                         </div>
-                        <div><label class="block text-sm font-medium mb-1.5 text-brand-gray-200">Mensaje</label><textarea name="mensaje" rows="4" class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-brand-gray-300 focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow transition resize-none" placeholder="Cuéntanos sobre tu proyecto..."></textarea></div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-brand-yellow to-brand-orange text-brand-dark font-bold py-4 rounded-lg text-base hover:shadow-xl hover:shadow-brand-yellow/20 hover:-translate-y-0.5 transition-all duration-300 cta-glow">
+                        <div><label class="block text-sm font-medium mb-1.5 text-brand-gray-200">Mensaje</label><textarea name="mensaje" rows="4" class="w-full bg-brand-gray-400 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-brand-gray-300 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition resize-none" placeholder="Cuéntanos sobre tu proyecto..."></textarea></div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-brand-orange to-brand-orange-dark text-white font-bold py-4 rounded-lg text-base hover:shadow-xl hover:shadow-brand-orange/20 hover:-translate-y-0.5 transition-all duration-300 cta-glow">
                             <i class="fa-solid fa-paper-plane mr-2"></i>Enviar Cotización
                         </button>
                     </form>
@@ -273,8 +275,8 @@
                 <!-- Col 1 -->
                 <div>
                     <a href="#inicio" class="flex items-center gap-2 mb-4">
-                        <div class="w-9 h-9 bg-gradient-to-br from-brand-yellow to-brand-orange rounded-lg flex items-center justify-center"><i class="fa-solid fa-bolt text-brand-dark font-bold"></i></div>
-                        <span class="text-lg font-extrabold"><span class="text-brand-yellow">ISI-COM</span> SPA</span>
+                        <div class="w-9 h-9 bg-gradient-to-br from-brand-blue to-brand-blue-light rounded-lg flex items-center justify-center"><i class="fa-solid fa-bolt text-white font-bold"></i></div>
+                        <span class="text-lg font-extrabold"><span class="text-brand-orange">ISI</span><span class="text-brand-blue">-COM</span> SPA</span>
                     </a>
                     <p class="text-brand-gray-300 text-sm leading-relaxed">Soluciones energéticas e industriales de alto rendimiento para minería, construcción e industria.</p>
                 </div>
@@ -282,10 +284,10 @@
                 <div>
                     <h4 class="font-bold text-sm uppercase tracking-wider mb-4 text-brand-gray-100">Enlaces</h4>
                     <ul class="space-y-2 text-sm text-brand-gray-300">
-                        <li><a href="#inicio" class="hover:text-brand-yellow transition">Inicio</a></li>
-                        <li><a href="#servicios" class="hover:text-brand-yellow transition">Servicios</a></li>
-                        <li><a href="#equipos" class="hover:text-brand-yellow transition">Equipos</a></li>
-                        <li><a href="#contacto" class="hover:text-brand-yellow transition">Contacto</a></li>
+                        <li><a href="#inicio" class="hover:text-brand-orange transition">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-orange transition">Servicios</a></li>
+                        <li><a href="#equipos" class="hover:text-brand-orange transition">Equipos</a></li>
+                        <li><a href="#contacto" class="hover:text-brand-orange transition">Contacto</a></li>
                     </ul>
                 </div>
                 <!-- Col 3 -->
@@ -293,33 +295,33 @@
                     <h4 class="font-bold text-sm uppercase tracking-wider mb-4 text-brand-gray-100">Servicios</h4>
                     <ul class="space-y-2 text-sm text-brand-gray-300">
                         <li>Arriendo de Generadores</li>
-                        <li>Torres de Iluminación</li>
-                        <li>Mantenciones</li>
-                        <li>Bancos de Carga</li>
-                        <li>Kit Minero</li>
+                        <li>Mantención y Servicio Técnico</li>
+                        <li>Jaulas y Kit Minero</li>
+                        <li>Bancos de Carga 550 kVA</li>
+                        <li>Tableros Eléctricos Certificados</li>
                     </ul>
                 </div>
                 <!-- Col 4 -->
                 <div>
                     <h4 class="font-bold text-sm uppercase tracking-wider mb-4 text-brand-gray-100">Contacto</h4>
                     <ul class="space-y-3 text-sm text-brand-gray-300">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-yellow text-xs"></i>+56 9 4762 3264</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-brand-yellow text-xs"></i>contacto@isi-com.cl</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-yellow text-xs"></i>Chile</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-orange text-xs"></i>+56 9 4762 3264</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-brand-orange text-xs"></i>Ventas@isi-com.cl</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-orange text-xs"></i>Chile</li>
                     </ul>
                     <!-- Redes Sociales -->
                     <div class="flex gap-3 mt-5">
                         <!-- REEMPLAZAR: URLs reales de redes sociales -->
-                        <a href="#" class="w-9 h-9 bg-brand-gray-400 rounded-lg flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-all"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-                        <a href="#" class="w-9 h-9 bg-brand-gray-400 rounded-lg flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-all"><i class="fa-brands fa-instagram text-sm"></i></a>
-                        <a href="#" class="w-9 h-9 bg-brand-gray-400 rounded-lg flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-all"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
-                        <a href="#" class="w-9 h-9 bg-brand-gray-400 rounded-lg flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-all"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 bg-brand-gray-400 rounded-lg flex items-center justify-center hover:bg-brand-blue hover:text-white transition-all"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 bg-brand-gray-400 rounded-lg flex items-center justify-center hover:bg-brand-blue hover:text-white transition-all"><i class="fa-brands fa-instagram text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 bg-brand-gray-400 rounded-lg flex items-center justify-center hover:bg-brand-blue hover:text-white transition-all"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 bg-brand-gray-400 rounded-lg flex items-center justify-center hover:bg-brand-blue hover:text-white transition-all"><i class="fa-brands fa-whatsapp text-sm"></i></a>
                     </div>
                 </div>
             </div>
             <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <p class="text-brand-gray-300 text-xs">&copy; 2026 ISI-COM SPA. Todos los derechos reservados.</p>
-                <p class="text-brand-gray-300 text-xs">Diseñado con <i class="fa-solid fa-heart text-brand-yellow"></i> para la industria</p>
+                <p class="text-brand-gray-300 text-xs">Diseñado con <i class="fa-solid fa-heart text-brand-orange"></i> para la industria</p>
             </div>
         </div>
     </footer>
