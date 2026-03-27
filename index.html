@@ -1,236 +1,249 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ISI-COM SPA · Generadores y Energía Industrial · Antofagasta</title>
-<meta name="description" content="ISI-COM SPA — Arriendo de Grupos Electrógenos, Torres LED, Tableros TDF. Soporte 24/7 minería e industria, II Región de Antofagasta.">
+<title>ISI-COM SPA · Arriendo de Generadores · Todo Chile</title>
+<meta name="description" content="ISI-COM SPA — Arriendo de Grupos Electrógenos de 10 a 1000 kVA, Torres LED, Tableros TDF. 15 años de experiencia, cobertura en todo Chile.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--or:#F7941D;--bl:#29ABE2;--bk:#050608;--bk2:#0a0d12;--bk3:#0f1319;--tx:#9eaab8;--wh:#fff}
+:root{
+  --or:#D98A2B;
+  --or-light:#E9A654;
+  --bl:#4AABCC;
+  --bl-soft:#3A8FAD;
+  --bk:#0B1018;
+  --bk2:#0F1620;
+  --bk3:#141C28;
+  --bk4:#1A2436;
+  --tx:#8C99AA;
+  --tx-light:#B0BAC8;
+  --wh:#EDF1F5;
+  --border:rgba(255,255,255,.06)
+}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* ─── CANVAS ─── */
 #particles{position:fixed;inset:0;z-index:0;pointer-events:none}
 
 /* ─── HEADER ─── */
-.hdr{position:fixed;top:0;width:100%;z-index:999;padding:0 5vw;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,6,8,.85);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.04);transition:.3s}
-.hdr.scrolled{background:rgba(5,6,8,.97);box-shadow:0 4px 30px rgba(0,0,0,.6)}
+.hdr{position:fixed;top:0;width:100%;z-index:999;padding:0 5vw;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(11,16,24,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:.3s}
+.hdr.scrolled{background:rgba(11,16,24,.96);box-shadow:0 4px 30px rgba(0,0,0,.4)}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo img{height:38px;background:#fff;padding:2px;border-radius:2px}
-.logo-t{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--wh);letter-spacing:3px}
+.logo img{height:42px;border-radius:4px}
+.logo-t{font-family:'Outfit',sans-serif;font-size:1.4rem;color:var(--wh);letter-spacing:2px;font-weight:700}
 .logo-t b{color:var(--or)}
-.nav-links{display:flex;gap:2.5rem;align-items:center}
-.nav-links a{color:var(--tx);text-decoration:none;font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.3s;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--or);transition:.3s}
+.nav-links{display:flex;gap:2.2rem;align-items:center}
+.nav-links a{color:var(--tx);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--or);transition:.3s;border-radius:2px}
 .nav-links a:hover{color:var(--wh)}
 .nav-links a:hover::after{width:100%}
-.hdr-cta{background:var(--or);color:#000;padding:10px 22px;font-weight:800;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));transition:.3s}
-.hdr-cta:hover{background:var(--bl)}
+.hdr-cta{background:var(--or);color:#000;padding:10px 24px;font-weight:700;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:.3s}
+.hdr-cta:hover{background:var(--or-light);transform:translateY(-2px);box-shadow:0 8px 20px rgba(217,138,43,.25)}
 .burger{display:none;background:none;border:none;color:var(--wh);font-size:1.5rem;cursor:pointer}
 
 /* ─── HERO ─── */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:0 5vw;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:1}
-.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.25) contrast(1.2)}
-.hero-grad{position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(5,6,8,.98) 0%,rgba(5,6,8,.85) 40%,rgba(5,6,8,.3) 70%,rgba(5,6,8,.15) 100%)}
-.hero-lines{position:absolute;inset:0;z-index:3;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.012) 3px,rgba(255,255,255,.012) 4px);pointer-events:none}
-.hero-content{position:relative;z-index:10;max-width:680px;padding:100px 0}
-.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7rem);color:var(--wh);line-height:.95;letter-spacing:2px;margin-bottom:24px}
-.hero h1 .accent{color:var(--or);position:relative}
-.hero h1 .accent::after{content:'';position:absolute;bottom:5px;left:0;width:100%;height:8px;background:var(--or);opacity:.2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.22) contrast(1.1) saturate(.9)}
+.hero-grad{position:absolute;inset:0;z-index:2;background:linear-gradient(110deg,rgba(11,16,24,.97) 0%,rgba(11,16,24,.88) 35%,rgba(11,16,24,.45) 65%,rgba(11,16,24,.2) 100%)}
+.hero-content{position:relative;z-index:10;max-width:680px;padding:120px 0 100px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(217,138,43,.1);border:1px solid rgba(217,138,43,.2);padding:8px 18px;border-radius:50px;font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--or);margin-bottom:28px}
+.hero-tag i{font-size:.6rem}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(2.8rem,6vw,5rem);color:var(--wh);line-height:1.1;font-weight:800;margin-bottom:24px;letter-spacing:-.5px}
+.hero h1 .accent{color:var(--or)}
 .hero h1 .bl{color:var(--bl)}
-.hero-desc{font-size:1.1rem;line-height:1.8;max-width:520px;margin-bottom:40px;color:var(--tx)}
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:50px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;font-weight:800;font-size:.88rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:.3s;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px))}
+.hero-desc{font-size:1.05rem;line-height:1.9;max-width:520px;margin-bottom:36px;color:var(--tx-light);font-weight:400}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:.3s;border-radius:8px;border:none;cursor:pointer}
 .btn-or{background:var(--or);color:#000}
-.btn-or:hover{background:#ffab40;transform:translateY(-3px);box-shadow:0 12px 30px rgba(247,148,29,.3)}
-.btn-bl-out{background:transparent;color:var(--bl);border:2px solid var(--bl)}
-.btn-bl-out:hover{background:var(--bl);color:#000;transform:translateY(-3px)}
-.hero-trust{display:flex;align-items:center;gap:20px;padding-top:30px;border-top:1px solid rgba(255,255,255,.06)}
-.hero-trust-item{display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.5);font-weight:600}
-.hero-trust-item i{color:var(--or);font-size:.9rem}
-.watermark{position:absolute;bottom:-5%;right:-5%;z-index:4;font-family:'Bebas Neue',sans-serif;font-size:22vw;color:rgba(255,255,255,.012);line-height:.85;pointer-events:none;user-select:none}
+.btn-or:hover{background:var(--or-light);transform:translateY(-3px);box-shadow:0 12px 30px rgba(217,138,43,.25)}
+.btn-bl-out{background:transparent;color:var(--bl);border:1.5px solid rgba(74,171,204,.4)}
+.btn-bl-out:hover{background:rgba(74,171,204,.08);border-color:var(--bl);transform:translateY(-3px)}
+.hero-trust{display:flex;align-items:center;gap:28px;padding-top:28px;border-top:1px solid var(--border)}
+.hero-trust-item{display:flex;align-items:center;gap:8px;font-size:.8rem;color:rgba(255,255,255,.45);font-weight:500}
+.hero-trust-item i{color:var(--or);font-size:.85rem}
+.watermark{position:absolute;bottom:-3%;right:-3%;z-index:4;font-family:'Outfit',sans-serif;font-size:18vw;color:rgba(255,255,255,.015);line-height:.85;pointer-events:none;user-select:none;font-weight:900}
 
 /* ─── TICKER ─── */
-.ticker{position:relative;z-index:10;background:var(--or);overflow:hidden;padding:14px 0;border-bottom:3px solid rgba(0,0,0,.2)}
-.ticker-track{display:flex;gap:60px;animation:scroll 25s linear infinite;width:max-content}
-.ticker-track span{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:4px;color:#000;white-space:nowrap;display:flex;align-items:center;gap:12px}
-.ticker-track span i{font-size:.6rem;opacity:.5}
+.ticker{position:relative;z-index:10;background:var(--bk3);overflow:hidden;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.ticker-track{display:flex;gap:50px;animation:scroll 30s linear infinite;width:max-content}
+.ticker-track span{font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:3px;color:var(--tx);white-space:nowrap;display:flex;align-items:center;gap:14px;text-transform:uppercase}
+.ticker-track span i{font-size:.35rem;color:var(--or);opacity:.6}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ─── STATS ─── */
-.stats{position:relative;z-index:10;background:var(--bk2);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
+.stats{position:relative;z-index:10;background:var(--bk2);border-bottom:1px solid var(--border)}
 .stats-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:1200px;margin:0 auto;padding:50px 5vw}
 .stat{text-align:center;position:relative}
-.stat:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(255,255,255,.06)}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3.8rem;color:var(--or);line-height:1}
-.stat-lbl{font-size:.78rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-top:6px;color:var(--tx)}
+.stat:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:var(--border)}
+.stat-num{font-family:'Outfit',sans-serif;font-size:3.2rem;color:var(--or);line-height:1;font-weight:800}
+.stat-lbl{font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-top:8px;color:var(--tx)}
 
 /* ─── SECTION COMMON ─── */
-.sec{padding:120px 5vw;position:relative;z-index:10}
+.sec{padding:110px 5vw;position:relative;z-index:10}
 .sec-dark{background:var(--bk)}
 .sec-alt{background:var(--bk2)}
-.sec-head{text-align:center;margin-bottom:80px}
-.sec-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--bl);margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:8px}
-.sec-tag::before,.sec-tag::after{content:'';width:30px;height:2px;background:var(--bl);opacity:.4}
-.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);color:var(--wh);letter-spacing:3px;line-height:1}
+.sec-head{text-align:center;margin-bottom:70px}
+.sec-tag{font-size:.72rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--bl);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:10px}
+.sec-tag::before,.sec-tag::after{content:'';width:24px;height:1px;background:var(--bl);opacity:.4}
+.sec-title{font-family:'Outfit',sans-serif;font-size:clamp(2.2rem,4.5vw,3.6rem);color:var(--wh);letter-spacing:-.5px;line-height:1.1;font-weight:800}
 .sec-title b{color:var(--or)}
-.sec-sub{font-size:1rem;color:var(--tx);max-width:550px;margin:18px auto 0;line-height:1.7}
+.sec-sub{font-size:.95rem;color:var(--tx);max-width:520px;margin:16px auto 0;line-height:1.8}
 
 /* ─── SOLUTIONS ─── */
-.sol-row{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:2px;min-height:550px;position:relative;overflow:hidden}
+.sol-row{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:2px;min-height:500px;position:relative;overflow:hidden}
 .sol-row.flip{direction:rtl}
 .sol-row.flip>*{direction:ltr}
 .sol-img{position:relative;overflow:hidden}
 .sol-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease;filter:brightness(.85) contrast(1.05)}
-.sol-row:hover .sol-img img{transform:scale(1.06)}
-.sol-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bk2) 0%,transparent 40%)}
-.sol-row.flip .sol-img::after{background:linear-gradient(-90deg,var(--bk2) 0%,transparent 40%)}
-.sol-body{background:var(--bk2);display:flex;flex-direction:column;justify-content:center;padding:60px 70px;position:relative}
-.sol-body::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(to bottom,var(--or),var(--bl))}
+.sol-row:hover .sol-img img{transform:scale(1.05)}
+.sol-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bk2) 0%,transparent 35%)}
+.sol-row.flip .sol-img::after{background:linear-gradient(-90deg,var(--bk2) 0%,transparent 35%)}
+.sol-body{background:var(--bk2);display:flex;flex-direction:column;justify-content:center;padding:55px 60px;position:relative}
+.sol-body::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--or),var(--bl))}
 .sol-row.flip .sol-body::before{left:auto;right:0}
-.sol-num{font-family:'Bebas Neue',sans-serif;font-size:8rem;color:rgba(255,255,255,.03);position:absolute;top:-15px;right:20px;line-height:1;pointer-events:none}
+.sol-num{font-family:'Outfit',sans-serif;font-size:7rem;color:rgba(255,255,255,.025);position:absolute;top:-10px;right:20px;line-height:1;pointer-events:none;font-weight:900}
 .sol-row.flip .sol-num{right:auto;left:20px}
-.sol-body h3{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--wh);letter-spacing:2px;margin-bottom:16px}
-.sol-body p{font-size:.95rem;line-height:1.8;margin-bottom:28px;max-width:420px}
-.sol-features{list-style:none;margin-bottom:30px}
-.sol-features li{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:.9rem;color:var(--wh)}
-.sol-features li i{color:var(--or);margin-top:4px;font-size:.8rem;flex-shrink:0}
-.sol-link{display:inline-flex;align-items:center;gap:10px;color:var(--or);font-weight:700;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:.3s}
-.sol-link:hover{gap:18px;color:var(--bl)}
+.sol-body h3{font-family:'Outfit',sans-serif;font-size:1.8rem;color:var(--wh);font-weight:700;margin-bottom:14px;letter-spacing:-.3px}
+.sol-body p{font-size:.92rem;line-height:1.8;margin-bottom:24px;max-width:420px;color:var(--tx-light)}
+.sol-features{list-style:none;margin-bottom:28px}
+.sol-features li{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;font-size:.88rem;color:var(--wh);font-weight:500}
+.sol-features li i{color:var(--or);margin-top:4px;font-size:.75rem;flex-shrink:0}
+.sol-link{display:inline-flex;align-items:center;gap:10px;color:var(--or);font-weight:600;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:.3s}
+.sol-link:hover{gap:16px;color:var(--or-light)}
 
 /* ─── PROCESO ─── */
 .proceso-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:60px}
-.proceso-grid::before{content:'';position:absolute;top:48px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--or),var(--bl));z-index:1}
+.proceso-grid::before{content:'';position:absolute;top:40px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,var(--or),var(--bl));z-index:1;opacity:.5}
 .paso{text-align:center;position:relative;padding:0 20px}
-.paso-num{width:96px;height:96px;margin:0 auto 28px;background:var(--bk);border:2px solid var(--or);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--or);position:relative;z-index:2;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);transition:.4s}
-.paso:hover .paso-num{background:var(--or);color:#000;transform:scale(1.1)}
-.paso-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--wh);letter-spacing:1px;margin-bottom:8px}
-.paso-desc{font-size:.83rem;line-height:1.6;color:var(--tx)}
+.paso-num{width:80px;height:80px;margin:0 auto 24px;background:var(--bk);border:1.5px solid var(--or);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:700;color:var(--or);position:relative;z-index:2;border-radius:50%;transition:.4s}
+.paso:hover .paso-num{background:var(--or);color:#000;transform:scale(1.08);box-shadow:0 8px 25px rgba(217,138,43,.25)}
+.paso-title{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:var(--wh);margin-bottom:8px}
+.paso-desc{font-size:.82rem;line-height:1.65;color:var(--tx)}
 
 /* ─── GALERIA ─── */
-.gallery{position:relative;z-index:10;overflow:hidden}
-.gallery-track{display:flex;gap:4px;animation:galleryScroll 30s linear infinite}
-.gallery-track img{height:280px;width:auto;object-fit:cover;flex-shrink:0;filter:brightness(.8);transition:.4s}
-.gallery-track img:hover{filter:brightness(1);transform:scale(1.03)}
+.gallery{position:relative;z-index:10;overflow:hidden;padding:4px 0;background:var(--bk)}
+.gallery-track{display:flex;gap:4px;animation:galleryScroll 35s linear infinite}
+.gallery-track img{height:260px;width:auto;object-fit:cover;flex-shrink:0;filter:brightness(.75);transition:.4s;border-radius:2px}
+.gallery-track img:hover{filter:brightness(1)}
 @keyframes galleryScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ─── SECTORES ─── */
-.sectores-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
-.sector{background:var(--bk);border:1px solid rgba(255,255,255,.04);padding:40px 30px;text-align:center;position:relative;overflow:hidden;transition:.4s}
-.sector::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--or);transform:scaleX(0);transition:.4s}
-.sector:hover{border-color:rgba(247,148,29,.3);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.sectores-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
+.sector{background:var(--bk3);border:1px solid var(--border);padding:36px 28px;text-align:center;position:relative;overflow:hidden;transition:.4s;border-radius:8px}
+.sector::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--or),var(--bl));transform:scaleX(0);transition:.4s}
+.sector:hover{border-color:rgba(217,138,43,.2);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
 .sector:hover::before{transform:scaleX(1)}
-.sector-icon{font-size:2.8rem;margin-bottom:20px;background:linear-gradient(135deg,var(--or),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.sector-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--wh);letter-spacing:2px;margin-bottom:8px}
-.sector-desc{font-size:.85rem;line-height:1.7;color:var(--tx)}
+.sector-icon{font-size:2.2rem;margin-bottom:18px;color:var(--or);opacity:.8}
+.sector-name{font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;color:var(--wh);margin-bottom:8px}
+.sector-desc{font-size:.83rem;line-height:1.7;color:var(--tx)}
 
 /* ─── FLEET ─── */
-.fleet-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.fleet-card{position:relative;overflow:hidden;background:var(--bk);border:1px solid rgba(255,255,255,.04);transition:.5s;cursor:default}
-.fleet-card:hover{border-color:var(--or);transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.6)}
-.fleet-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--or),var(--bl));opacity:0;transition:.4s}
+.fleet-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.fleet-card{position:relative;overflow:hidden;background:var(--bk3);border:1px solid var(--border);transition:.4s;border-radius:8px}
+.fleet-card:hover{border-color:rgba(217,138,43,.2);transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.fleet-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--or),var(--bl));opacity:0;transition:.4s;border-radius:8px 8px 0 0}
 .fleet-card:hover::before{opacity:1}
-.fc-img{width:100%;height:240px;object-fit:cover;transition:.6s}
-.fleet-card:hover .fc-img{transform:scale(1.04)}
-.fc-body{padding:24px}
-.fc-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--wh);letter-spacing:1px;margin-bottom:8px}
-.fc-desc{font-size:.85rem;line-height:1.7;color:var(--tx)}
+.fc-img{width:100%;height:220px;object-fit:cover;transition:.6s}
+.fleet-card:hover .fc-img{transform:scale(1.03)}
+.fc-body{padding:22px}
+.fc-name{font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;color:var(--wh);margin-bottom:6px}
+.fc-desc{font-size:.83rem;line-height:1.7;color:var(--tx)}
 
 /* ─── VENTAJAS ─── */
-.vent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:60px}
-.vent{display:flex;gap:24px;align-items:flex-start;background:var(--bk2);border:1px solid rgba(255,255,255,.04);padding:35px;transition:.4s;position:relative;overflow:hidden}
-.vent::after{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:var(--or);transition:.4s}
-.vent:hover{border-color:rgba(41,171,226,.2);transform:translateX(6px)}
+.vent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:60px}
+.vent{display:flex;gap:20px;align-items:flex-start;background:var(--bk3);border:1px solid var(--border);padding:30px;transition:.4s;position:relative;overflow:hidden;border-radius:8px}
+.vent::after{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--or);transition:.4s;border-radius:0 0 2px 2px}
+.vent:hover{border-color:rgba(74,171,204,.15);transform:translateX(4px)}
 .vent:hover::after{height:100%}
-.vent-icon{width:60px;height:60px;flex-shrink:0;background:rgba(247,148,29,.06);border:1px solid rgba(247,148,29,.15);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--or);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
-.vent-info h4{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--wh);letter-spacing:1px;margin-bottom:6px}
-.vent-info p{font-size:.85rem;line-height:1.7;color:var(--tx)}
+.vent-icon{width:50px;height:50px;flex-shrink:0;background:rgba(217,138,43,.06);border:1px solid rgba(217,138,43,.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--or);border-radius:12px}
+.vent-info h4{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:var(--wh);margin-bottom:6px}
+.vent-info p{font-size:.83rem;line-height:1.7;color:var(--tx)}
 
 /* ─── CTA ─── */
 .cta-band{position:relative;z-index:10;padding:80px 5vw;text-align:center;overflow:hidden}
-.cta-band::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--or),#e07a0a 50%,var(--bl));z-index:1}
-.cta-band::after{content:'';position:absolute;inset:0;z-index:2;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(0,0,0,.06) 20px,rgba(0,0,0,.06) 40px)}
+.cta-band::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--bk4) 0%,var(--bk3) 100%);z-index:1}
+.cta-band::after{content:'';position:absolute;inset:0;z-index:2;background-image:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(217,138,43,.015) 30px,rgba(217,138,43,.015) 60px)}
 .cta-band>*{position:relative;z-index:3}
-.cta-band h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,4rem);color:#000;letter-spacing:3px;margin-bottom:12px}
-.cta-band p{color:rgba(0,0,0,.6);font-size:1rem;margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto}
-.cta-dark{display:inline-flex;align-items:center;gap:10px;background:#050608;color:var(--or);padding:16px 40px;font-weight:800;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:.3s;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px))}
-.cta-dark:hover{background:var(--bk3);transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,.5)}
+.cta-band h2{font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,4vw,3rem);color:var(--wh);font-weight:800;margin-bottom:14px;letter-spacing:-.3px}
+.cta-band p{color:var(--tx);font-size:.95rem;margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cta-main{display:inline-flex;align-items:center;gap:10px;background:var(--or);color:#000;padding:16px 40px;font-weight:700;font-size:.88rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:.3s;border-radius:8px}
+.cta-main:hover{background:var(--or-light);transform:translateY(-3px);box-shadow:0 12px 30px rgba(217,138,43,.3)}
 
 /* ─── CONTACT ─── */
 .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:start}
-.ct-left h3{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--wh);letter-spacing:2px;margin-bottom:16px}
-.ct-left>p{font-size:1rem;line-height:1.8;margin-bottom:40px;max-width:420px}
-.ct-row{display:flex;align-items:center;gap:20px;margin-bottom:28px}
-.ct-icon{width:56px;height:56px;background:rgba(247,148,29,.06);border:1px solid rgba(247,148,29,.15);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--or);flex-shrink:0;clip-path:polygon(0 0,100% 0,100% 80%,80% 100%,0 100%)}
-.ct-row-info{font-size:.95rem}
-.ct-row-info a{color:var(--wh);text-decoration:none;font-weight:700;transition:.3s}
+.ct-left h3{font-family:'Outfit',sans-serif;font-size:2.2rem;color:var(--wh);font-weight:800;margin-bottom:14px;letter-spacing:-.3px}
+.ct-left>p{font-size:.95rem;line-height:1.8;margin-bottom:36px;max-width:420px}
+.ct-row{display:flex;align-items:center;gap:18px;margin-bottom:24px}
+.ct-icon{width:50px;height:50px;background:rgba(217,138,43,.06);border:1px solid rgba(217,138,43,.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--or);flex-shrink:0;border-radius:12px}
+.ct-row-info{font-size:.92rem}
+.ct-row-info a{color:var(--wh);text-decoration:none;font-weight:600;transition:.3s}
 .ct-row-info a:hover{color:var(--or)}
-.ct-row-info small{display:block;color:var(--or);font-size:.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:3px}
-.ct-form{background:var(--bk3);border:1px solid rgba(255,255,255,.06);padding:50px;position:relative;clip-path:polygon(0 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%)}
-.ct-form::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--or),var(--bl))}
-.ct-form h4{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--wh);letter-spacing:2px;margin-bottom:30px}
-.fg{margin-bottom:18px}
-.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.fg input,.fg select,.fg textarea{width:100%;background:var(--bk);border:1px solid rgba(255,255,255,.08);padding:14px 18px;color:var(--wh);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:.3s;border-radius:0}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--or);background:rgba(247,148,29,.03)}
-.fg textarea{resize:vertical;min-height:100px}
+.ct-row-info small{display:block;color:var(--or);font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+.ct-form{background:var(--bk3);border:1px solid var(--border);padding:45px;position:relative;border-radius:12px;overflow:hidden}
+.ct-form::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--or),var(--bl))}
+.ct-form h4{font-family:'Outfit',sans-serif;font-size:1.4rem;color:var(--wh);font-weight:700;margin-bottom:28px}
+.fg{margin-bottom:16px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--bk);border:1px solid var(--border);padding:13px 16px;color:var(--wh);font-family:'Inter',sans-serif;font-size:.88rem;outline:none;transition:.3s;border-radius:6px}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--or);background:rgba(217,138,43,.03)}
+.fg textarea{resize:vertical;min-height:90px}
 .fg select option{background:var(--bk3)}
-.btn-submit{width:100%;background:var(--or);color:#000;padding:16px;font-family:'Inter',sans-serif;font-weight:800;font-size:.88rem;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:10px}
-.btn-submit:hover{background:var(--bl);transform:translateY(-2px);box-shadow:0 10px 30px rgba(41,171,226,.3)}
+.btn-submit{width:100%;background:var(--or);color:#000;padding:15px;font-family:'Inter',sans-serif;font-weight:700;font-size:.86rem;letter-spacing:1px;text-transform:uppercase;border:none;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:8px}
+.btn-submit:hover{background:var(--or-light);transform:translateY(-2px);box-shadow:0 10px 25px rgba(217,138,43,.25)}
 
 /* ─── FOOTER ─── */
-.ftr{background:#020304;border-top:1px solid rgba(255,255,255,.04);padding:50px 5vw 30px;position:relative;z-index:10}
-.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;margin-bottom:40px}
-.ftr-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.ftr-brand img{height:36px;background:#fff;padding:2px;border-radius:2px}
-.ftr-brand span{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--wh);letter-spacing:3px}
-.ftr-desc{font-size:.85rem;color:rgba(255,255,255,.3);line-height:1.7;max-width:280px}
-.ftr-col-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--wh);letter-spacing:2px;margin-bottom:16px}
+.ftr{background:#060A10;border-top:1px solid var(--border);padding:50px 5vw 28px;position:relative;z-index:10}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;margin-bottom:36px}
+.ftr-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.ftr-brand img{height:38px;border-radius:4px}
+.ftr-brand span{font-family:'Outfit',sans-serif;font-size:1.2rem;color:var(--wh);letter-spacing:1px;font-weight:700}
+.ftr-desc{font-size:.83rem;color:rgba(255,255,255,.25);line-height:1.7;max-width:280px}
+.ftr-col-title{font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;color:var(--wh);letter-spacing:1px;margin-bottom:16px}
 .ftr-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.ftr-links a{color:rgba(255,255,255,.3);text-decoration:none;font-size:.85rem;transition:.3s}
+.ftr-links a{color:rgba(255,255,255,.25);text-decoration:none;font-size:.83rem;transition:.3s}
 .ftr-links a:hover{color:var(--or)}
-.ftr-contact-item{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:.85rem;color:rgba(255,255,255,.3)}
-.ftr-contact-item i{color:var(--or);width:16px;text-align:center}
-.ftr-contact-item a{color:rgba(255,255,255,.3);text-decoration:none;transition:.3s}
+.ftr-contact-item{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:.83rem;color:rgba(255,255,255,.25)}
+.ftr-contact-item i{color:var(--or);width:16px;text-align:center;font-size:.8rem}
+.ftr-contact-item a{color:rgba(255,255,255,.25);text-decoration:none;transition:.3s}
 .ftr-contact-item a:hover{color:var(--or)}
-.ftr-bottom{border-top:1px solid rgba(255,255,255,.04);padding-top:25px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
-.ftr-copy{font-size:.78rem;color:rgba(255,255,255,.15);letter-spacing:1px}
-.ftr-soc{display:flex;gap:10px}
-.ftr-soc a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.3);text-decoration:none;transition:.3s;font-size:.85rem}
-.ftr-soc a:hover{border-color:var(--or);color:var(--or);background:rgba(247,148,29,.05)}
+.ftr-bottom{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.ftr-copy{font-size:.75rem;color:rgba(255,255,255,.12);letter-spacing:.5px}
+.ftr-soc{display:flex;gap:8px}
+.ftr-soc a{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:rgba(255,255,255,.25);text-decoration:none;transition:.3s;font-size:.82rem;border-radius:8px}
+.ftr-soc a:hover{border-color:var(--or);color:var(--or);background:rgba(217,138,43,.05)}
 
 /* ─── WHATSAPP FLOAT ─── */
-.wa-float{position:fixed;bottom:30px;right:30px;z-index:1000;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:.3s;animation:floatBounce 3s ease-in-out infinite}
-.wa-float:hover{transform:scale(1.12);box-shadow:0 8px 30px rgba(37,211,102,.6)}
-@keyframes floatBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:1000;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.7rem;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.35);transition:.3s;animation:floatBounce 3s ease-in-out infinite}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(37,211,102,.5)}
+@keyframes floatBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
 /* ─── REVEAL ─── */
-.rv{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
 .rv.on{opacity:1;transform:translateY(0)}
 
 /* ─── MOBILE ─── */
-.mob-menu{display:none;position:fixed;top:70px;left:0;width:100%;background:var(--bk);z-index:998;padding:30px 5vw;flex-direction:column;gap:20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.mob-menu{display:none;position:fixed;top:72px;left:0;width:100%;background:var(--bk2);z-index:998;padding:28px 5vw;flex-direction:column;gap:18px;border-bottom:1px solid var(--border)}
 .mob-menu.open{display:flex}
-.mob-menu a{color:var(--wh);text-decoration:none;font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.mob-menu a{color:var(--wh);text-decoration:none;font-size:.92rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:10px 0;border-bottom:1px solid var(--border)}
 
 @media(max-width:1024px){
   .nav-links,.hdr-cta{display:none}
   .burger{display:block}
   .sol-row,.sol-row.flip{grid-template-columns:1fr;direction:ltr}
   .sol-row.flip>*{direction:ltr}
-  .sol-img{height:350px}
-  .sol-body{padding:40px 30px}
+  .sol-img{height:320px}
+  .sol-body{padding:36px 28px}
   .fleet-grid{grid-template-columns:1fr 1fr}
   .contact-grid{grid-template-columns:1fr}
   .stats-inner{grid-template-columns:repeat(2,1fr);gap:30px}
   .stat:not(:last-child)::after{display:none}
-  .proceso-grid{grid-template-columns:repeat(2,1fr);gap:40px}
+  .proceso-grid{grid-template-columns:repeat(2,1fr);gap:36px}
   .proceso-grid::before{display:none}
   .sectores-grid{grid-template-columns:1fr 1fr}
   .vent-grid{grid-template-columns:1fr}
@@ -240,7 +253,7 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
   .fleet-grid{grid-template-columns:1fr}
   .stats-inner{grid-template-columns:1fr}
   .fg-row{grid-template-columns:1fr}
-  .hero h1{font-size:3rem}
+  .hero h1{font-size:2.4rem}
   .proceso-grid{grid-template-columns:1fr}
   .sectores-grid{grid-template-columns:1fr}
   .ftr-grid{grid-template-columns:1fr}
@@ -278,19 +291,19 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 <section class="hero">
   <div class="hero-bg"><img src="eg37-faena.jpg" alt="Generador ISI-COM en faena minera"></div>
   <div class="hero-grad"></div>
-  <div class="hero-lines"></div>
   <div class="watermark">ISI-COM</div>
   <div class="hero-content">
-    <h1>ARRIENDO DE<br><span class="accent">GENERADORES</span><br>Y EQUIPOS <span class="bl">MINEROS</span></h1>
-    <p class="hero-desc">Grupos electrógenos de 20 a 550 kVA, torres LED y tableros TDF con kit minero completo. Transporte, instalación y soporte técnico en tu faena.</p>
+    <div class="hero-tag"><i class="fa-solid fa-circle"></i> 15 años operando en todo Chile</div>
+    <h1>Arriendo de <span class="accent">Generadores</span> para Minería <span class="bl">e Industria</span></h1>
+    <p class="hero-desc">Grupos electrógenos de 10 a 1.000 kVA, torres de iluminación LED y tableros TDF. Transporte, instalación y soporte técnico 24/7 en tu faena.</p>
     <div class="hero-btns">
       <a href="#contacto" class="btn btn-or"><i class="fa-solid fa-bolt"></i> Cotizar Proyecto</a>
-      <a href="#soluciones" class="btn btn-bl-out">Ver Equipos</a>
+      <a href="https://wa.me/56947623264" target="_blank" class="btn btn-bl-out"><i class="fa-brands fa-whatsapp"></i> WhatsApp Directo</a>
     </div>
     <div class="hero-trust">
-      <div class="hero-trust-item"><i class="fa-solid fa-shield-halved"></i> Norma SERNAGEOMIN</div>
+      <div class="hero-trust-item"><i class="fa-solid fa-shield-halved"></i> Certificación minera</div>
       <div class="hero-trust-item"><i class="fa-solid fa-clock"></i> Respuesta en 24 hrs</div>
-      <div class="hero-trust-item"><i class="fa-solid fa-truck-fast"></i> Despacho en la II Región</div>
+      <div class="hero-trust-item"><i class="fa-solid fa-truck-fast"></i> Despacho a todo Chile</div>
     </div>
   </div>
 </section>
@@ -298,31 +311,31 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span>GENERADORES DIÉSEL <i class="fa-solid fa-diamond"></i></span>
-    <span>TORRES LED <i class="fa-solid fa-diamond"></i></span>
-    <span>TABLEROS TDF <i class="fa-solid fa-diamond"></i></span>
-    <span>BANCOS DE CARGA <i class="fa-solid fa-diamond"></i></span>
-    <span>KIT MINERO <i class="fa-solid fa-diamond"></i></span>
-    <span>SOPORTE 24/7 <i class="fa-solid fa-diamond"></i></span>
-    <span>MANTENCIÓN PREVENTIVA <i class="fa-solid fa-diamond"></i></span>
-    <span>CERTIFICACIÓN MINERA <i class="fa-solid fa-diamond"></i></span>
-    <span>GENERADORES DIÉSEL <i class="fa-solid fa-diamond"></i></span>
-    <span>TORRES LED <i class="fa-solid fa-diamond"></i></span>
-    <span>TABLEROS TDF <i class="fa-solid fa-diamond"></i></span>
-    <span>BANCOS DE CARGA <i class="fa-solid fa-diamond"></i></span>
-    <span>KIT MINERO <i class="fa-solid fa-diamond"></i></span>
-    <span>SOPORTE 24/7 <i class="fa-solid fa-diamond"></i></span>
-    <span>MANTENCIÓN PREVENTIVA <i class="fa-solid fa-diamond"></i></span>
-    <span>CERTIFICACIÓN MINERA <i class="fa-solid fa-diamond"></i></span>
+    <span>Generadores Diésel <i class="fa-solid fa-circle"></i></span>
+    <span>Torres LED <i class="fa-solid fa-circle"></i></span>
+    <span>Tableros TDF <i class="fa-solid fa-circle"></i></span>
+    <span>Bancos de Carga <i class="fa-solid fa-circle"></i></span>
+    <span>Kit Minero <i class="fa-solid fa-circle"></i></span>
+    <span>Soporte 24/7 <i class="fa-solid fa-circle"></i></span>
+    <span>Mantención Preventiva <i class="fa-solid fa-circle"></i></span>
+    <span>Cobertura Nacional <i class="fa-solid fa-circle"></i></span>
+    <span>Generadores Diésel <i class="fa-solid fa-circle"></i></span>
+    <span>Torres LED <i class="fa-solid fa-circle"></i></span>
+    <span>Tableros TDF <i class="fa-solid fa-circle"></i></span>
+    <span>Bancos de Carga <i class="fa-solid fa-circle"></i></span>
+    <span>Kit Minero <i class="fa-solid fa-circle"></i></span>
+    <span>Soporte 24/7 <i class="fa-solid fa-circle"></i></span>
+    <span>Mantención Preventiva <i class="fa-solid fa-circle"></i></span>
+    <span>Cobertura Nacional <i class="fa-solid fa-circle"></i></span>
   </div>
 </div>
 
 <!-- STATS -->
 <div class="stats">
   <div class="stats-inner">
-    <div class="stat rv"><div class="stat-num" data-target="15">0</div><div class="stat-lbl">Años Operando</div></div>
-    <div class="stat rv"><div class="stat-num" data-target="550">0</div><div class="stat-lbl">kVA Máx. Potencia</div></div>
-    <div class="stat rv"><div class="stat-num" data-target="500">0</div><div class="stat-lbl">Proyectos Ejecutados</div></div>
+    <div class="stat rv"><div class="stat-num" data-target="15">0</div><div class="stat-lbl">Años de Operaciones</div></div>
+    <div class="stat rv"><div class="stat-num" data-target="1000">0</div><div class="stat-lbl">kVA Máx. Potencia</div></div>
+    <div class="stat rv"><div class="stat-num" data-target="200">0</div><div class="stat-lbl">Proyectos Ejecutados</div></div>
     <div class="stat rv"><div class="stat-num special">24/7</div><div class="stat-lbl">Soporte en Terreno</div></div>
   </div>
 </div>
@@ -331,18 +344,18 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 <section id="soluciones" class="sec sec-dark">
   <div class="sec-head rv">
     <div class="sec-tag">Arriendo de Equipos</div>
-    <h2 class="sec-title">NUESTRAS <b>SOLUCIONES</b></h2>
+    <h2 class="sec-title">Nuestras <b>Soluciones</b></h2>
     <p class="sec-sub">Equipamiento robusto para cada necesidad energética. Desde campamentos hasta plantas de procesamiento.</p>
   </div>
 
   <div class="sol-row rv">
-    <div class="sol-img"><img src="eg37-interior.jpg" alt="Interior generador ISI-COM"></div>
+    <div class="sol-img"><img src="generador-exterior.jpg" alt="Generador ISI-COM EG-37 con kit minero"></div>
     <div class="sol-body">
       <div class="sol-num">01</div>
-      <h3>GRUPOS ELECTRÓGENOS</h3>
-      <p>Potencia diésel de 20 a 550 kVA con motores CAT, Perkins y Cummins. Transporte, instalación y puesta en marcha incluidos.</p>
+      <h3>Grupos Electrógenos</h3>
+      <p>Potencia diésel de 10 a 1.000 kVA con motores CAT, Perkins y Cummins. Transporte, instalación y puesta en marcha incluidos.</p>
       <ul class="sol-features">
-        <li><i class="fa-solid fa-bolt"></i> Rango: 20 kVA – 550 kVA</li>
+        <li><i class="fa-solid fa-bolt"></i> Rango: 10 kVA – 1.000 kVA</li>
         <li><i class="fa-solid fa-shield-halved"></i> Kit minero: jaula + bandeja contención</li>
         <li><i class="fa-solid fa-truck-fast"></i> Despliegue rápido en terreno</li>
       </ul>
@@ -351,29 +364,29 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
   </div>
 
   <div class="sol-row flip rv">
-    <div class="sol-img"><img src="eg37-duo.jpg" alt="Torres LED ISI-COM"></div>
+    <div class="sol-img"><img src="generador-perspectiva.jpg" alt="Torres LED ISI-COM"></div>
     <div class="sol-body">
       <div class="sol-num">02</div>
-      <h3>TORRES LED DE FAENA</h3>
+      <h3>Torres de Iluminación LED</h3>
       <p>Iluminación autónoma de alto rendimiento para faenas 24/7. Mástil telescópico, cobertura 360° y consumo eficiente.</p>
       <ul class="sol-features">
         <li><i class="fa-solid fa-bolt"></i> Mástiles hasta 9 metros de altura</li>
         <li><i class="fa-solid fa-shield-halved"></i> Resistente a viento y polvo abrasivo</li>
-        <li><i class="fa-solid fa-certificate"></i> Cumple normativa SERNAGEOMIN</li>
+        <li><i class="fa-solid fa-certificate"></i> Cumple normativa para minería</li>
       </ul>
       <a href="#contacto" class="sol-link">Cotizar ahora <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 
   <div class="sol-row rv">
-    <div class="sol-img"><img src="eg37-motor.jpg" alt="Tableros y bancos de carga"></div>
+    <div class="sol-img"><img src="tableros.jpg" alt="Tableros TDF y bancos de carga ISI-COM"></div>
     <div class="sol-body">
       <div class="sol-num">03</div>
-      <h3>TABLEROS TDF & BANCOS DE CARGA</h3>
-      <p>Distribución eléctrica certificada 220V/380V y pruebas de capacidad real con bancos portátiles de hasta 550 kW.</p>
+      <h3>Tableros TDF & Bancos de Carga</h3>
+      <p>Distribución eléctrica certificada 220V/380V y pruebas de capacidad real de generadores con bancos portátiles.</p>
       <ul class="sol-features">
         <li><i class="fa-solid fa-bolt"></i> Tableros TDF-2 y TDF-4 certificados</li>
-        <li><i class="fa-solid fa-gauge-high"></i> Bancos de carga hasta 550 kVA</li>
+        <li><i class="fa-solid fa-gauge-high"></i> Bancos de carga portátiles</li>
         <li><i class="fa-solid fa-lock"></i> Parada de emergencia integrada</li>
       </ul>
       <a href="#contacto" class="sol-link">Cotizar ahora <i class="fa-solid fa-arrow-right"></i></a>
@@ -384,53 +397,53 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 <!-- PROCESO -->
 <section id="proceso" class="sec sec-alt">
   <div class="sec-head rv">
-    <div class="sec-tag">Cómo Trabajamos</div>
-    <h2 class="sec-title">DEL CONTACTO A <b>LA FAENA</b></h2>
+    <div class="sec-tag">Cómo trabajamos</div>
+    <h2 class="sec-title">Del contacto a <b>la faena</b></h2>
     <p class="sec-sub">Un proceso directo y sin burocracia. Tu equipo operando en terreno lo antes posible.</p>
   </div>
   <div class="proceso-grid">
     <div class="paso rv">
       <div class="paso-num">01</div>
-      <div class="paso-title">LEVANTAMIENTO</div>
+      <div class="paso-title">Levantamiento</div>
       <div class="paso-desc">Evaluamos tu necesidad de potencia, ubicación y condiciones del sitio.</div>
     </div>
     <div class="paso rv">
       <div class="paso-num">02</div>
-      <div class="paso-title">COTIZACIÓN</div>
+      <div class="paso-title">Cotización</div>
       <div class="paso-desc">Propuesta técnica y económica en menos de 24 horas con opciones a medida.</div>
     </div>
     <div class="paso rv">
       <div class="paso-num">03</div>
-      <div class="paso-title">DESPACHO</div>
+      <div class="paso-title">Despacho</div>
       <div class="paso-desc">Transporte con grúa propia e instalación electromecánica en tu faena.</div>
     </div>
     <div class="paso rv">
       <div class="paso-num">04</div>
-      <div class="paso-title">SOPORTE</div>
+      <div class="paso-title">Soporte</div>
       <div class="paso-desc">Mantención programada y técnicos disponibles 24/7 mientras dure el arriendo.</div>
     </div>
   </div>
 </section>
 
-<!-- GALERÍA AUTO-SCROLL -->
+<!-- GALERÍA -->
 <div class="gallery">
   <div class="gallery-track">
     <img src="eg37-faena.jpg" alt="Faena">
-    <img src="eg37-interior.jpg" alt="Interior">
+    <img src="generador-exterior.jpg" alt="Generador exterior">
     <img src="eg37-duo.jpg" alt="Generadores">
-    <img src="hyster-grua.jpg" alt="Grúa">
+    <img src="yale-hyster.jpg" alt="Grúa Hyster">
     <img src="eg24-jaula.jpg" alt="Kit minero">
-    <img src="eg06-taller.jpg" alt="Taller">
+    <img src="tableros.jpg" alt="Tableros TDF">
     <img src="eg37-motor.jpg" alt="Motor">
-    <img src="eg37-lateral.jpg" alt="Lateral">
+    <img src="generador-perspectiva.jpg" alt="Generador perspectiva">
     <img src="eg37-faena.jpg" alt="Faena">
-    <img src="eg37-interior.jpg" alt="Interior">
+    <img src="generador-exterior.jpg" alt="Generador exterior">
     <img src="eg37-duo.jpg" alt="Generadores">
-    <img src="hyster-grua.jpg" alt="Grúa">
+    <img src="yale-hyster.jpg" alt="Grúa Hyster">
     <img src="eg24-jaula.jpg" alt="Kit minero">
-    <img src="eg06-taller.jpg" alt="Taller">
+    <img src="tableros.jpg" alt="Tableros TDF">
     <img src="eg37-motor.jpg" alt="Motor">
-    <img src="eg37-lateral.jpg" alt="Lateral">
+    <img src="generador-perspectiva.jpg" alt="Generador perspectiva">
   </div>
 </div>
 
@@ -438,38 +451,38 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 <section id="sectores" class="sec sec-dark">
   <div class="sec-head rv">
     <div class="sec-tag">Industrias</div>
-    <h2 class="sec-title">SECTORES QUE <b>ATENDEMOS</b></h2>
-    <p class="sec-sub">Experiencia real en las condiciones más hostiles de la Región de Antofagasta.</p>
+    <h2 class="sec-title">Sectores que <b>atendemos</b></h2>
+    <p class="sec-sub">Más de 200 proyectos ejecutados en las condiciones más hostiles de Chile.</p>
   </div>
   <div class="sectores-grid">
     <div class="sector rv">
       <div class="sector-icon"><i class="fa-solid fa-mountain"></i></div>
-      <div class="sector-name">MINERÍA</div>
+      <div class="sector-name">Minería</div>
       <div class="sector-desc">Gran minería, mediana minería y plantas de procesamiento. Equipos certificados para altura y condiciones extremas.</div>
     </div>
     <div class="sector rv">
       <div class="sector-icon"><i class="fa-solid fa-building"></i></div>
-      <div class="sector-name">CONSTRUCCIÓN</div>
+      <div class="sector-name">Construcción</div>
       <div class="sector-desc">Obras civiles, montaje industrial y proyectos de infraestructura con necesidad de energía temporal.</div>
     </div>
     <div class="sector rv">
       <div class="sector-icon"><i class="fa-solid fa-oil-well"></i></div>
-      <div class="sector-name">ENERGÍA & PETRÓLEO</div>
+      <div class="sector-name">Energía & Petróleo</div>
       <div class="sector-desc">Plantas solares, subestaciones y faenas de exploración que requieren respaldo continuo.</div>
     </div>
     <div class="sector rv">
       <div class="sector-icon"><i class="fa-solid fa-ship"></i></div>
-      <div class="sector-name">PORTUARIA</div>
+      <div class="sector-name">Portuaria</div>
       <div class="sector-desc">Terminales y zonas de carga donde la continuidad eléctrica es crítica para la operación.</div>
     </div>
     <div class="sector rv">
       <div class="sector-icon"><i class="fa-solid fa-fish"></i></div>
-      <div class="sector-name">PESCA & ACUICULTURA</div>
+      <div class="sector-name">Pesca & Acuicultura</div>
       <div class="sector-desc">Plantas de procesamiento y frigoríficos donde un corte de energía significa pérdida total del producto.</div>
     </div>
     <div class="sector rv">
       <div class="sector-icon"><i class="fa-solid fa-calendar-days"></i></div>
-      <div class="sector-name">EVENTOS</div>
+      <div class="sector-name">Eventos</div>
       <div class="sector-desc">Ferias, conciertos y eventos masivos con requerimientos puntuales de potencia y distribución eléctrica.</div>
     </div>
   </div>
@@ -479,35 +492,35 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 <section id="flota" class="sec sec-alt">
   <div class="sec-head rv">
     <div class="sec-tag">Flota Real</div>
-    <h2 class="sec-title">EQUIPAMIENTO <b>ISI-COM</b></h2>
+    <h2 class="sec-title">Equipamiento <b>ISI-COM</b></h2>
     <p class="sec-sub">Flota propia mantenida en nuestro taller. Cada equipo sale revisado y certificado.</p>
   </div>
   <div class="fleet-grid">
     <div class="fleet-card rv">
-      <img class="fc-img" src="hyster-grua.jpg" alt="Grúa Hyster ISI-COM">
+      <img class="fc-img" src="yale-hyster.jpg" alt="Grúa Hyster 155 ISI-COM">
       <div class="fc-body">
-        <div class="fc-name">GRÚA HYSTER 7 TON</div>
+        <div class="fc-name">Grúa Hyster 155</div>
         <div class="fc-desc">Logística propia para carga y posicionamiento preciso de equipos pesados en cualquier terreno.</div>
       </div>
     </div>
     <div class="fleet-card rv">
       <img class="fc-img" src="eg24-jaula.jpg" alt="Generador con kit minero">
       <div class="fc-body">
-        <div class="fc-name">KIT MINERO COMPLETO</div>
-        <div class="fc-desc">Jaula antivuelco y bandeja de contención fabricadas a medida con certificación SERNAGEOMIN.</div>
+        <div class="fc-name">Kit Minero Completo</div>
+        <div class="fc-desc">Jaula antivuelco y bandeja de contención fabricadas a medida con certificación para minería.</div>
       </div>
     </div>
     <div class="fleet-card rv">
       <img class="fc-img" src="eg06-taller.jpg" alt="Taller ISI-COM">
       <div class="fc-body">
-        <div class="fc-name">TALLER CENTRAL</div>
+        <div class="fc-name">Taller Central</div>
         <div class="fc-desc">Overhauling preventivo completo. Cada equipo pasa por revisión exhaustiva antes de salir a faena.</div>
       </div>
     </div>
     <div class="fleet-card rv">
       <img class="fc-img" src="eg37-lateral.jpg" alt="Generador lateral ISI-COM">
       <div class="fc-body">
-        <div class="fc-name">FABRICACIÓN ESTRUCTURAL</div>
+        <div class="fc-name">Fabricación Estructural</div>
         <div class="fc-desc">Diseño y construcción de estructuras metálicas personalizadas para cada requerimiento operacional.</div>
       </div>
     </div>
@@ -518,48 +531,48 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 <section class="sec sec-dark">
   <div class="sec-head rv">
     <div class="sec-tag">Por qué ISI-COM</div>
-    <h2 class="sec-title">VENTAJAS <b>COMPETITIVAS</b></h2>
+    <h2 class="sec-title">Ventajas <b>competitivas</b></h2>
   </div>
   <div class="vent-grid">
     <div class="vent rv">
       <div class="vent-icon"><i class="fa-solid fa-truck-moving"></i></div>
       <div class="vent-info">
-        <h4>LOGÍSTICA PROPIA</h4>
+        <h4>Logística propia</h4>
         <p>Grúa horquilla, camiones y equipo de montaje propio. No dependemos de terceros para cumplir plazos.</p>
       </div>
     </div>
     <div class="vent rv">
       <div class="vent-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
       <div class="vent-info">
-        <h4>TALLER DE MANTENCIÓN</h4>
+        <h4>Taller de mantención</h4>
         <p>Mantenciones preventivas y correctivas en nuestro taller central. Historial de servicio verificable por equipo.</p>
       </div>
     </div>
     <div class="vent rv">
       <div class="vent-icon"><i class="fa-solid fa-helmet-safety"></i></div>
       <div class="vent-info">
-        <h4>TÉCNICOS EN TERRENO</h4>
+        <h4>Técnicos en terreno</h4>
         <p>Personal certificado disponible 24/7 para diagnóstico y reparación directamente en tu faena.</p>
       </div>
     </div>
     <div class="vent rv">
       <div class="vent-icon"><i class="fa-solid fa-file-contract"></i></div>
       <div class="vent-info">
-        <h4>SIN INTERMEDIARIOS</h4>
+        <h4>Sin intermediarios</h4>
         <p>Flota 100% propia. Cotización directa, sin subcontratos ni sobrecostos de arriendo a terceros.</p>
       </div>
     </div>
     <div class="vent rv">
       <div class="vent-icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
       <div class="vent-info">
-        <h4>ACLIMATADOS AL DESIERTO</h4>
+        <h4>Aclimatados al desierto</h4>
         <p>Equipos preparados para operar en altura, polvo abrasivo, diferencial térmico extremo y salinidad.</p>
       </div>
     </div>
     <div class="vent rv">
       <div class="vent-icon"><i class="fa-solid fa-handshake"></i></div>
       <div class="vent-info">
-        <h4>CONTRATOS FLEXIBLES</h4>
+        <h4>Contratos flexibles</h4>
         <p>Arriendos diarios, semanales, mensuales o por proyecto. Escalamiento de potencia sin penalización.</p>
       </div>
     </div>
@@ -568,24 +581,24 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 
 <!-- CTA -->
 <section class="cta-band">
-  <h2 class="rv">¿NECESITAS ENERGÍA PARA TU PROYECTO?</h2>
-  <p class="rv">Cotiza sin compromiso. Respuesta en menos de 24 hrs con la solución exacta para tu faena.</p>
-  <a href="#contacto" class="cta-dark rv"><i class="fa-solid fa-bolt"></i> Cotizar Ahora</a>
+  <h2 class="rv">¿Necesitas energía para tu proyecto?</h2>
+  <p class="rv">Cotiza sin compromiso. Respuesta en menos de 24 hrs con la solución exacta para tu faena, en cualquier punto del país.</p>
+  <a href="#contacto" class="cta-main rv"><i class="fa-solid fa-bolt"></i> Cotizar Ahora</a>
 </section>
 
 <!-- CONTACTO -->
 <section id="contacto" class="sec sec-dark">
   <div class="sec-head rv">
     <div class="sec-tag">Hablemos</div>
-    <h2 class="sec-title">SOLICITA TU <b>COTIZACIÓN</b></h2>
+    <h2 class="sec-title">Solicita tu <b>cotización</b></h2>
   </div>
   <div class="contact-grid">
     <div class="ct-left rv">
-      <h3>LA FALLA ELÉCTRICA CUESTA MILLONES</h3>
+      <h3>La falla eléctrica cuesta millones</h3>
       <p>Cuéntanos qué necesitas y nuestro equipo técnico armará la solución más eficiente para tu operación minera o industrial.</p>
       <div class="ct-row">
         <div class="ct-icon"><i class="fa-brands fa-whatsapp"></i></div>
-        <div class="ct-row-info"><a href="https://wa.me/56947623264">+56 9 4762 3264</a><small>Línea directa de urgencias</small></div>
+        <div class="ct-row-info"><a href="https://wa.me/56947623264">+56 9 4762 3264</a><small>WhatsApp directo</small></div>
       </div>
       <div class="ct-row">
         <div class="ct-icon"><i class="fa-solid fa-envelope"></i></div>
@@ -593,11 +606,11 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
       </div>
       <div class="ct-row">
         <div class="ct-icon"><i class="fa-solid fa-location-dot"></i></div>
-        <div class="ct-row-info"><span style="color:var(--wh);font-weight:700">Antofagasta, II Región</span><small>Cobertura en toda la Región de Antofagasta</small></div>
+        <div class="ct-row-info"><span style="color:var(--wh);font-weight:600">Vladimir Saavedra 446, Antofagasta</span><small>Cobertura en todo Chile</small></div>
       </div>
     </div>
     <form class="ct-form rv" action="#" method="POST">
-      <h4>SOLICITAR ASESORÍA TÉCNICA</h4>
+      <h4>Solicitar asesoría técnica</h4>
       <div class="fg-row">
         <div class="fg"><input type="text" name="nombre" placeholder="Nombre" required></div>
         <div class="fg"><input type="text" name="empresa" placeholder="Empresa"></div>
@@ -629,10 +642,10 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
   <div class="ftr-grid">
     <div>
       <div class="ftr-brand"><img src="logo-isicom.jpg" alt="ISI-COM"><span>ISI-COM SPA</span></div>
-      <p class="ftr-desc">Soluciones energéticas para minería, construcción e industria. Flota propia, taller central y soporte técnico 24/7 en la Región de Antofagasta.</p>
+      <p class="ftr-desc">Arriendo de generadores y soluciones energéticas para minería, construcción e industria. 15 años operando con cobertura en todo Chile.</p>
     </div>
     <div>
-      <div class="ftr-col-title">NAVEGACIÓN</div>
+      <div class="ftr-col-title">Navegación</div>
       <ul class="ftr-links">
         <li><a href="#soluciones">Soluciones</a></li>
         <li><a href="#proceso">Proceso</a></li>
@@ -642,7 +655,7 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
       </ul>
     </div>
     <div>
-      <div class="ftr-col-title">SERVICIOS</div>
+      <div class="ftr-col-title">Servicios</div>
       <ul class="ftr-links">
         <li><a href="#soluciones">Generadores Diésel</a></li>
         <li><a href="#soluciones">Torres LED</a></li>
@@ -652,15 +665,15 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
       </ul>
     </div>
     <div>
-      <div class="ftr-col-title">CONTACTO</div>
+      <div class="ftr-col-title">Contacto</div>
       <div class="ftr-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+56947623264">+56 9 4762 3264</a></div>
       <div class="ftr-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:Ventas@isi-com.cl">Ventas@isi-com.cl</a></div>
-      <div class="ftr-contact-item"><i class="fa-solid fa-location-dot"></i>Antofagasta, II Región</div>
+      <div class="ftr-contact-item"><i class="fa-solid fa-location-dot"></i>Vladimir Saavedra 446, Antofagasta</div>
       <div class="ftr-contact-item"><i class="fa-solid fa-clock"></i>Soporte 24/7</div>
     </div>
   </div>
   <div class="ftr-bottom">
-    <div class="ftr-copy">&copy; 2026 ISI-COM SPA · Todos los derechos reservados</div>
+    <div class="ftr-copy">© 2026 ISI-COM SPA · Todos los derechos reservados</div>
     <div class="ftr-soc">
       <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -673,49 +686,49 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 <a href="https://wa.me/56947623264" target="_blank" class="wa-float" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 
 <script>
-// ── Particles ──
+// -- Particles --
 (function(){
   const c=document.getElementById('particles'),ctx=c.getContext('2d');
   let w,h,pts=[];
   function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
   resize();addEventListener('resize',resize);
-  for(let i=0;i<50;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.2+.4});
+  for(let i=0;i<40;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,r:Math.random()*1+.3});
   function draw(){
     ctx.clearRect(0,0,w,h);
     for(const p of pts){
       p.x+=p.vx;p.y+=p.vy;
       if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(247,148,29,.12)';ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(217,138,43,.07)';ctx.fill();
     }
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
       const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<130){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=gba(41,171,226,);ctx.stroke()}
+      if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(74,171,204,'+(0.025*(1-d/120))+')';ctx.stroke()}
     }
     requestAnimationFrame(draw);
   }
   draw();
 })();
 
-// ── Header scroll ──
+// -- Header scroll --
 const hdr=document.getElementById('hdr');
 addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>50));
 
-// ── Burger ──
+// -- Burger --
 const burger=document.getElementById('burger'),mob=document.getElementById('mob');
 burger.addEventListener('click',()=>{mob.classList.toggle('open');burger.querySelector('i').classList.toggle('fa-bars');burger.querySelector('i').classList.toggle('fa-xmark')});
 mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');burger.querySelector('i').classList.add('fa-bars');burger.querySelector('i').classList.remove('fa-xmark')}));
 
-// ── Reveal ──
+// -- Reveal --
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');if(e.target.classList.contains('stat'))animateNum(e.target.querySelector('.stat-num'))}})},{threshold:.15});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
-// ── Counter ──
+// -- Counter --
 function animateNum(el){
   if(!el||el.classList.contains('special')||el.dataset.done)return;
   el.dataset.done='1';
   const target=parseInt(el.dataset.target);if(isNaN(target))return;
   let cur=0;const step=Math.ceil(target/50);
-  const iv=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(iv)}el.textContent=cur+(target<100?'+':'')},30);
+  const iv=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(iv)}el.textContent=cur+(target<100?'+':'+')},30);
 }
 </script>
 </body>
