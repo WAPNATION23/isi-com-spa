@@ -1,1329 +1,446 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISI-COM | Soluciones Energéticas & Equipamiento Industrial</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            /* Colores Base */
-            --bg-base: #020408;
-            --bg-surface: #0a0e14;
-            --bg-surface-elevated: #111820;
-            
-            /* Colores Oficiales */
-            --orange: #FF6A00;
-            --orange-glow: rgba(255, 106, 0, 0.4);
-            --blue: #00A3FF;
-            --blue-glow: rgba(0, 163, 255, 0.4);
-            
-            /* Texto */
-            --text-primary: #ffffff;
-            --text-secondary: #8c9baf;
-            --text-tertiary: #52637a;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ISI-COM SPA · Generadores y Energía Industrial · Norte de Chile</title>
+<meta name="description" content="ISI-COM SPA — Arriendo de Grupos Electrógenos, Torres LED, Tableros TDF. Soporte 24/7 minería e industria, norte de Chile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--or:#F7941D;--bl:#29ABE2;--bk:#050608;--bk2:#0a0d12;--bk3:#0f1319;--tx:#9eaab8;--wh:#fff}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflow-x:hidden}
 
-            /* Utilidades */
-            --border: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(255, 255, 255, 0.2);
-            --gradient-brand: linear-gradient(135deg, var(--orange) 0%, var(--blue) 100%);
-        }
+/* ─── CANVAS PARTICLES ─── */
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* ─── HEADER ─── */
+.hdr{position:fixed;top:0;width:100%;z-index:999;padding:0 5vw;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,6,8,.85);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.04);transition:.3s}
+.hdr.scrolled{background:rgba(5,6,8,.97);box-shadow:0 4px 30px rgba(0,0,0,.6)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:38px;background:#fff;padding:2px;border-radius:2px}
+.logo-t{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--wh);letter-spacing:3px}
+.logo-t b{color:var(--or)}
+.nav-links{display:flex;gap:2.5rem;align-items:center}
+.nav-links a{color:var(--tx);text-decoration:none;font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--or);transition:.3s}
+.nav-links a:hover{color:var(--wh)}
+.nav-links a:hover::after{width:100%}
+.hdr-cta{background:var(--or);color:#000;padding:10px 22px;font-weight:800;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));transition:.3s}
+.hdr-cta:hover{background:var(--bl)}
+.burger{display:none;background:none;border:none;color:var(--wh);font-size:1.5rem;cursor:pointer}
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* ─── HERO ─── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:0 5vw;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.25) contrast(1.2)}
+.hero-grad{position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(5,6,8,.98) 0%,rgba(5,6,8,.85) 40%,rgba(5,6,8,.3) 70%,rgba(5,6,8,.15) 100%)}
+.hero-lines{position:absolute;inset:0;z-index:3;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.012) 3px,rgba(255,255,255,.012) 4px);pointer-events:none}
+.hero-content{position:relative;z-index:10;max-width:680px;padding:100px 0}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(247,148,29,.1);border:1px solid rgba(247,148,29,.3);padding:6px 16px;margin-bottom:28px;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--or);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
+.hero-tag .dot{width:6px;height:6px;background:var(--or);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.5)}}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7rem);color:var(--wh);line-height:.95;letter-spacing:2px;margin-bottom:24px}
+.hero h1 .accent{color:var(--or);position:relative}
+.hero h1 .accent::after{content:'';position:absolute;bottom:5px;left:0;width:100%;height:8px;background:var(--or);opacity:.2}
+.hero h1 .bl{color:var(--bl)}
+.hero-desc{font-size:1.1rem;line-height:1.8;max-width:520px;margin-bottom:40px;color:var(--tx)}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
 
-        body {
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+/* big watermark */
+.watermark{position:absolute;bottom:-5%;right:-5%;z-index:4;font-family:'Bebas Neue',sans-serif;font-size:28vw;color:rgba(255,255,255,.015);line-height:.85;pointer-events:none;user-select:none}
 
-        /* Tipografía */
-        h1, h2, h3, h4, h5, h6, .outfit {
-            font-family: 'Outfit', sans-serif;
-        }
+/* ─── DIAGONAL DIVIDER ─── */
+.diag{width:100%;height:80px;position:relative;z-index:10}
+.diag svg{display:block;width:100%;height:100%}
 
-        /* Layout & Contenedores */
-        .container {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+/* ─── STATS BAR ─── */
+.stats{position:relative;z-index:10;background:var(--bk2);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:1200px;margin:0 auto;padding:50px 5vw}
+.stat{text-align:center;position:relative}
+.stat:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(255,255,255,.06)}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3.8rem;color:var(--or);line-height:1}
+.stat-lbl{font-size:.78rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-top:6px;color:var(--tx)}
 
-        section {
-            padding: 8rem 0;
-            position: relative;
-        }
+/* ─── SECTION COMMON ─── */
+.sec{padding:120px 5vw;position:relative;z-index:10}
+.sec-dark{background:var(--bk)}
+.sec-alt{background:var(--bk2)}
+.sec-head{text-align:center;margin-bottom:80px}
+.sec-tag{font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--bl);margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:8px}
+.sec-tag::before,.sec-tag::after{content:'';width:30px;height:2px;background:var(--bl);opacity:.4}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);color:var(--wh);letter-spacing:3px;line-height:1}
+.sec-title b{color:var(--or)}
 
-        /* Elementos Decorativos & Glows */
-        .glow-blob {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(140px);
-            opacity: 0.15;
-            z-index: 0;
-            pointer-events: none;
-        }
-        .glow-blob.orange { background: var(--orange); top: -200px; right: -200px; }
-        .glow-blob.blue { background: var(--blue); bottom: -200px; left: -200px; }
+/* ─── SOLUTIONS ─── */
+.sol-row{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:2px;min-height:550px;position:relative;overflow:hidden}
+.sol-row.flip{direction:rtl}
+.sol-row.flip>*{direction:ltr}
+.sol-img{position:relative;overflow:hidden}
+.sol-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease;filter:brightness(.7) contrast(1.1)}
+.sol-row:hover .sol-img img{transform:scale(1.06)}
+.sol-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bk2) 0%,transparent 40%)}
+.sol-row.flip .sol-img::after{background:linear-gradient(-90deg,var(--bk2) 0%,transparent 40%)}
+.sol-body{background:var(--bk2);display:flex;flex-direction:column;justify-content:center;padding:60px 70px;position:relative}
+.sol-body::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(to bottom,var(--or),var(--bl))}
+.sol-row.flip .sol-body::before{left:auto;right:0}
+.sol-num{font-family:'Bebas Neue',sans-serif;font-size:8rem;color:rgba(255,255,255,.03);position:absolute;top:-15px;right:20px;line-height:1;pointer-events:none}
+.sol-row.flip .sol-num{right:auto;left:20px}
+.sol-body h3{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--wh);letter-spacing:2px;margin-bottom:16px}
+.sol-body p{font-size:.95rem;line-height:1.8;margin-bottom:28px;max-width:420px}
+.sol-features{list-style:none;margin-bottom:30px}
+.sol-features li{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:.9rem;color:var(--wh)}
+.sol-features li i{color:var(--or);margin-top:4px;font-size:.8rem;flex-shrink:0}
+.sol-link{display:inline-flex;align-items:center;gap:10px;color:var(--or);font-weight:700;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:.3s}
+.sol-link:hover{gap:18px;color:var(--bl)}
 
-        .gradient-text {
-            background: var(--gradient-brand);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+/* ─── FLEET GRID ─── */
+.fleet-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.fleet-card{position:relative;overflow:hidden;background:var(--bk);border:1px solid rgba(255,255,255,.04);transition:.5s;cursor:default}
+.fleet-card:hover{border-color:var(--or);transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.fleet-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--or),var(--bl));opacity:0;transition:.4s}
+.fleet-card:hover::before{opacity:1}
+.fc-img{width:100%;height:240px;object-fit:cover;filter:grayscale(70%) brightness(.8);transition:.6s}
+.fleet-card:hover .fc-img{filter:grayscale(0%) brightness(1)}
+.fc-body{padding:24px}
+.fc-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--wh);letter-spacing:1px;margin-bottom:8px}
+.fc-desc{font-size:.85rem;line-height:1.7;color:var(--tx)}
 
-        /* Utilidades UI */
-        .tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-        }
-        .tag::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background: var(--orange);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--orange-glow);
-        }
+/* ─── CTA BAND ─── */
+.cta-band{position:relative;z-index:10;padding:80px 5vw;text-align:center;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--or),#e07a0a 50%,var(--bl));z-index:1}
+.cta-band::after{content:'';position:absolute;inset:0;z-index:2;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(0,0,0,.06) 20px,rgba(0,0,0,.06) 40px)}
+.cta-band>*{position:relative;z-index:3}
+.cta-band h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,4rem);color:#000;letter-spacing:3px;margin-bottom:12px}
+.cta-band p{color:rgba(0,0,0,.6);font-size:1rem;margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-dark{display:inline-flex;align-items:center;gap:10px;background:#050608;color:var(--or);padding:16px 40px;font-weight:800;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:.3s;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px))}
+.cta-dark:hover{background:var(--bk3);transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,.5)}
 
-        /* Botones */
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            background: var(--text-primary);
-            color: var(--bg-base);
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--gradient-brand);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .btn-primary:hover {
-            color: var(--text-primary);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 163, 255, 0.2);
-        }
-        .btn-primary:hover::before {
-            opacity: 1;
-        }
+/* ─── CONTACT ─── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:start}
+.ct-left h3{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--wh);letter-spacing:2px;margin-bottom:16px}
+.ct-left>p{font-size:1rem;line-height:1.8;margin-bottom:40px;max-width:420px}
+.ct-row{display:flex;align-items:center;gap:20px;margin-bottom:28px}
+.ct-icon{width:56px;height:56px;background:rgba(247,148,29,.06);border:1px solid rgba(247,148,29,.15);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--or);flex-shrink:0;clip-path:polygon(0 0,100% 0,100% 80%,80% 100%,0 100%)}
+.ct-row-info{font-size:.95rem}
+.ct-row-info a{color:var(--wh);text-decoration:none;font-weight:700;transition:.3s}
+.ct-row-info a:hover{color:var(--or)}
+.ct-row-info small{display:block;color:var(--or);font-size:.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:3px}
 
-        .btn-outline {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            background: transparent;
-            color: var(--text-primary);
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            text-decoration: none;
-            border: 1px solid var(--border-hover);
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-        .btn-outline:hover {
-            border-color: var(--orange);
-            background: rgba(255, 106, 0, 0.05);
-            transform: translateY(-2px);
-        }
+.ct-form{background:var(--bk3);border:1px solid rgba(255,255,255,.06);padding:50px;position:relative;clip-path:polygon(0 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%)}
+.ct-form::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--or),var(--bl))}
+.ct-form h4{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--wh);letter-spacing:2px;margin-bottom:30px}
+.fg{margin-bottom:18px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--bk);border:1px solid rgba(255,255,255,.08);padding:14px 18px;color:var(--wh);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:.3s;border-radius:0}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--or);background:rgba(247,148,29,.03)}
+.fg textarea{resize:vertical;min-height:100px}
+.fg select option{background:var(--bk3)}
+.btn-submit{width:100%;background:var(--or);color:#000;padding:16px;font-family:'Inter',sans-serif;font-weight:800;font-size:.88rem;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-submit:hover{background:var(--bl);transform:translateY(-2px);box-shadow:0 10px 30px rgba(41,171,226,.3)}
 
-        /* Navegación */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            background: rgba(2, 4, 8, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 80px;
-            padding: 0 2rem;
-            max-width: 1440px;
-            margin: 0 auto;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-        }
-        .logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background: white;
-            padding: 4px;
-        }
-        .logo-text {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--text-primary);
-            letter-spacing: 0.02em;
-        }
-        .logo-text span { color: var(--orange); }
-        .logo-text em { color: var(--blue); font-style: normal; }
+/* ─── FOOTER ─── */
+.ftr{background:#020304;border-top:1px solid rgba(255,255,255,.04);padding:50px 5vw 30px;position:relative;z-index:10}
+.ftr-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.ftr-left{display:flex;align-items:center;gap:15px}
+.ftr-left img{height:34px;background:#fff;padding:2px;border-radius:2px;filter:grayscale(100%) opacity(.4)}
+.ftr-left span{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:rgba(255,255,255,.3);letter-spacing:3px}
+.ftr-copy{font-size:.78rem;color:rgba(255,255,255,.2);letter-spacing:1px}
+.ftr-soc{display:flex;gap:10px}
+.ftr-soc a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.3);text-decoration:none;transition:.3s;font-size:.85rem}
+.ftr-soc a:hover{border-color:var(--or);color:var(--or);background:rgba(247,148,29,.05)}
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.875rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            transition: color 0.3s;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-brand);
-            transition: width 0.3s;
-        }
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+/* ─── REVEAL ─── */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:translateY(0)}
 
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-        .btn-whatsapp {
-            color: #25D366;
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-            text-decoration: none;
-        }
-        .btn-whatsapp:hover {
-            transform: scale(1.15);
-            filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.4));
-        }
-        
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+/* ─── MOBILE ─── */
+.mob-menu{display:none;position:fixed;top:70px;left:0;width:100%;background:var(--bk);z-index:998;padding:30px 5vw;flex-direction:column;gap:20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.mob-menu.open{display:flex}
+.mob-menu a{color:var(--wh);text-decoration:none;font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
 
-        /* Hero Section */
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-            overflow: hidden;
-        }
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 10;
-        }
-        .hero-title {
-            font-size: clamp(3rem, 5vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.05;
-            margin-bottom: 2rem;
-            letter-spacing: -0.02em;
-        }
-        .hero-desc {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 500px;
-        }
-        .hero-actions {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            padding-top: 3rem;
-            border-top: 1px solid var(--border);
-        }
-        .stat-item h4 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--gradient-brand);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.25rem;
-        }
-        .stat-item p {
-            font-size: 0.875rem;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 500;
-        }
-
-        .hero-visual {
-            position: relative;
-            height: 700px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-        .hero-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.05); /* Avoid edge artifacts */
-        }
-        .hero-visual-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, var(--bg-base) 0%, rgba(2, 4, 8, 0.4) 50%, transparent 100%);
-        }
-        /* Decoraciones del Hero Visual */
-        .visual-decor {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            border: 2px solid transparent;
-            z-index: 5;
-        }
-        .vd-tl { top: 2rem; left: 2rem; border-top-color: var(--orange); border-left-color: var(--orange); }
-        .vd-br { bottom: 2rem; right: 2rem; border-bottom-color: var(--blue); border-right-color: var(--blue); }
-
-        .floating-badge {
-            position: absolute;
-            bottom: 3rem;
-            left: 3rem;
-            background: rgba(10, 14, 20, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--border-hover);
-            padding: 1.5rem;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            z-index: 10;
-        }
-        .fb-label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--text-secondary);
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-        }
-        .fb-value {
-            font-size: 1.5rem;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .fb-value i { color: var(--orange); }
-
-        /* Soluciones Section */
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 5rem;
-        }
-        .section-title {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-        }
-        .section-desc {
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-        }
-
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        .solution-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            group: hover;
-        }
-        .solution-card:hover {
-            border-color: var(--blue);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 163, 255, 0.1);
-        }
-        .solution-image {
-            height: 300px;
-            position: relative;
-            overflow: hidden;
-        }
-        .solution-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .solution-card:hover .solution-image img {
-            transform: scale(1.05);
-        }
-        .solution-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 100%);
-        }
-        .solution-content {
-            padding: 2rem 3rem 3rem;
-            position: relative;
-            z-index: 2;
-        }
-        .icon-wrapper {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 106, 0, 0.1);
-            border: 1px solid rgba(255, 106, 0, 0.2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--orange);
-            margin-top: -50px;
-            margin-bottom: 1.5rem;
-            position: relative;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
-        }
-        .solution-card:hover .icon-wrapper {
-            background: var(--gradient-brand);
-            color: white;
-            border-color: transparent;
-        }
-        .solution-card h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-        }
-        .solution-card p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-        .features-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        .features-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-        }
-        .features-list li i {
-            color: var(--blue);
-            font-size: 0.8rem;
-        }
-        .link-arrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.3s;
-        }
-        .link-arrow i {
-            transition: transform 0.3s;
-            color: var(--orange);
-        }
-        .link-arrow:hover {
-            color: var(--orange);
-        }
-        .link-arrow:hover i {
-            transform: translateX(4px);
-        }
-
-        /* Equipamiento Section */
-        #equipamiento {
-            background: var(--bg-surface);
-            position: relative;
-        }
-        #equipamiento::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
-        }
-        .eq-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-        .eq-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            height: 350px;
-            transition: all 0.4s;
-        }
-        .eq-item.large {
-            grid-column: span 2;
-            grid-row: span 2;
-            height: calc(700px + 1.5rem);
-        }
-        .eq-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s;
-        }
-        .eq-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(2,4,8,0.9), transparent 80%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 2rem;
-            transition: all 0.4s;
-        }
-        .eq-item:hover {
-            border-color: var(--blue);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .eq-item:hover img {
-            transform: scale(1.05);
-        }
-        .eq-detail h4 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .eq-detail p {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-        .eq-item:hover .eq-detail p {
-            opacity: 1;
-        }
-        
-        /* Banner CTA Intermedio */
-        .mid-cta {
-            position: relative;
-            padding: 8rem 0;
-            background: url('eg37-interior.jpg') center/cover fixed;
-        }
-        .mid-cta::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, var(--bg-base) 0%, rgba(2,4,8,0.8) 100%);
-        }
-        .mid-cta-content {
-            position: relative;
-            z-index: 10;
-            max-width: 600px;
-        }
-        .mid-cta h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            font-weight: 900;
-        }
-        .mid-cta p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-        }
-
-        /* Características / Por qué nosotros */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-        .feat-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            padding: 3rem 2rem;
-            border-radius: 16px;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .feat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--gradient-brand);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-        .feat-card:hover {
-            background: var(--bg-surface-elevated);
-            transform: translateY(-5px);
-        }
-        .feat-card:hover::before {
-            transform: scaleX(1);
-        }
-        .feat-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: var(--gradient-brand);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .feat-card h4 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-        .feat-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Contacto */
-        #contacto {
-            background: var(--bg-surface);
-            position: relative;
-            overflow: hidden;
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 6rem;
-            align-items: center;
-        }
-        .contact-info h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .contact-info p {
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-size: 1.125rem;
-        }
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        .cm-item {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-        .cm-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--blue);
-            transition: all 0.3s;
-        }
-        .cm-item:hover .cm-icon {
-            background: var(--blue);
-            color: white;
-            box-shadow: 0 0 20px var(--blue-glow);
-            border-color: var(--blue);
-        }
-        .cm-text h5 {
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 0.75rem;
-        }
-        .cm-text a, .cm-text span {
-            color: white;
-            text-decoration: none;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 1.25rem;
-        }
-
-        .contact-form {
-            background: var(--bg-base);
-            padding: 4rem;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            position: relative;
-        }
-        .contact-form::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 20px;
-            padding: 1px;
-            background: var(--gradient-brand);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-        .form-group label {
-            display: block;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 1rem 1.25rem;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: white;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--blue);
-            background: rgba(0, 163, 255, 0.05);
-        }
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-        .btn-submit {
-            width: 100%;
-            padding: 1.25rem;
-            background: var(--gradient-brand);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .btn-submit:hover {
-            box-shadow: 0 10px 30px rgba(255, 106, 0, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: #010204;
-            padding: 6rem 0 2rem;
-            border-top: 1px solid var(--border);
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-        .footer-brand p {
-            color: var(--text-secondary);
-            margin: 1.5rem 0;
-            max-width: 300px;
-        }
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .social-links a:hover {
-            color: white;
-            border-color: var(--orange);
-            background: var(--orange);
-        }
-        .footer-col h5 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-        .footer-col ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .footer-col a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer-col a:hover {
-            color: var(--blue);
-        }
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-tertiary);
-            font-size: 0.875rem;
-        }
-
-        /* Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero-title { font-size: 3.5rem; }
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 992px) {
-            .hero-grid { grid-template-columns: 1fr; text-align: center; }
-            .hero-content { display: flex; flex-direction: column; align-items: center; }
-            .hero-actions, .hero-stats { justify-content: center; }
-            .hero-visual { height: 500px; }
-            .solutions-grid { grid-template-columns: 1fr; }
-            .eq-grid { grid-template-columns: repeat(2, 1fr); }
-            .eq-item.large { grid-column: span 1; grid-row: span 1; height: 350px; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .contact-form { padding: 2.5rem; }
-        }
-        @media (max-width: 768px) {
-            .nav-links, .nav-actions { display: none; }
-            .hamburger { display: block; }
-            .hero-title { font-size: 2.5rem; }
-            .hero-stats { flex-direction: column; gap: 1.5rem; text-align: center; }
-            .eq-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-        }
-    </style>
+@media(max-width:1024px){
+  .nav-links,.hdr-cta{display:none}
+  .burger{display:block}
+  .sol-row,.sol-row.flip{grid-template-columns:1fr;direction:ltr}
+  .sol-row.flip>*{direction:ltr}
+  .sol-img{height:350px}
+  .sol-body{padding:40px 30px}
+  .fleet-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:30px}
+  .stat:not(:last-child)::after{display:none}
+}
+@media(max-width:600px){
+  .fleet-grid{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:1fr}
+  .fg-row{grid-template-columns:1fr}
+  .hero h1{font-size:3rem}
+}
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header id="header">
-        <nav>
-            <a href="#" class="logo">
-                <img src="logo-isicom.jpg" alt="ISI-COM SPA Logo">
-                <span class="logo-text"><span>ISI</span><em>-COM</em> SPA</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#soluciones">Soluciones</a></li>
-                <li><a href="#equipamiento">Equipamiento</a></li>
-                <li><a href="#experiencia">Servicios</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="https://wa.me/56947623264" target="_blank" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#contacto" class="btn-primary">Cotizar <i class="fa-solid fa-bolt"></i></a>
-            </div>
-            <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
-        </nav>
-    </header>
+<canvas id="particles"></canvas>
 
-    <!-- Hero Section -->
-    <section id="inicio">
-        <div class="glow-blob orange"></div>
-        <div class="container hero-grid">
-            <div class="hero-content reveal">
-                <div class="tag">Soporte Minero e Industrial 24/7</div>
-                <h1 class="hero-title">
-                    Energía <br>
-                    <span class="gradient-text">Ininterrumpida</span> <br>
-                    Para tu Proyecto
-                </h1>
-                <p class="hero-desc">
-                    Arriendo de Grupos Electrógenos, Torres LED y Tableros TDF para minería, construcción y sectores de alta exigencia en el norte de Chile.
-                </p>
-                <div class="hero-actions">
-                    <a href="#soluciones" class="btn-primary">Explorar Servicios</a>
-                    <a href="#contacto" class="btn-outline">Contáctanos</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h4>15+</h4>
-                        <p>Años de Experiencia</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>500+</h4>
-                        <p>Proyectos Exitosos</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>24/7</h4>
-                        <p>Soporte en Terreno</p>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-visual reveal shadow-xl" style="transition-delay: 0.2s;">
-                <div class="visual-decor vd-tl"></div>
-                <div class="visual-decor vd-br"></div>
-                <img src="eg37-faena.jpg" alt="Generador industrial en faena minera">
-                <div class="hero-visual-overlay"></div>
-                <div class="floating-badge">
-                    <span class="fb-label">Potencia Disponible</span>
-                    <span class="fb-value"><i class="fa-solid fa-bolt"></i> 20 - 550 kVA</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <a href="#" class="logo"><img src="logo-isicom.jpg" alt="ISI-COM SPA"><span class="logo-t"><b>ISI</b>-COM</span></a>
+  <nav class="nav-links">
+    <a href="#soluciones">Soluciones</a>
+    <a href="#flota">Flota</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <a href="#contacto" class="hdr-cta"><i class="fa-solid fa-bolt"></i> Cotizar</a>
+  <button class="burger" id="burger" aria-label="Menú"><i class="fa-solid fa-bars"></i></button>
+</header>
+<div class="mob-menu" id="mob">
+  <a href="#soluciones">Soluciones</a>
+  <a href="#flota">Flota</a>
+  <a href="#contacto">Contacto</a>
+  <a href="https://wa.me/56947623264" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp 24/7</a>
+</div>
 
-    <!-- Soluciones Section -->
-    <section id="soluciones">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="tag">Nuestras Especialidades</div>
-                <h2 class="section-title">Ingeniería <span class="gradient-text">Estratégica</span></h2>
-                <p class="section-desc">Capacidad robusta preparada para las condiciones más adversas del desierto y la industria.</p>
-            </div>
-            
-            <div class="solutions-grid">
-                <!-- Solucion 1 -->
-                <div class="solution-card reveal">
-                    <div class="solution-image">
-                        <img src="eg37-interior.jpg" alt="Grupos Electrógenos">
-                    </div>
-                    <div class="solution-content">
-                        <div class="icon-wrapper"><i class="fa-solid fa-car-battery"></i></div>
-                        <h3>Arriendo de Generadores</h3>
-                        <p>Grupos electrógenos diésel insonorizados con kit minero completo. Transporte, instalación y puesta en marcha segura.</p>
-                        <ul class="features-list">
-                            <li><i class="fa-solid fa-check"></i> Motores CAT, Perkins y Cummins</li>
-                            <li><i class="fa-solid fa-check"></i> Jaula y bandejas de contención</li>
-                            <li><i class="fa-solid fa-check"></i> Tableros TDF certificados</li>
-                        </ul>
-                        <a href="#contacto" class="link-arrow">Solicitar Equipo <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Solucion 2 -->
-                <div class="solution-card reveal" style="transition-delay: 0.2s;">
-                    <div class="solution-image">
-                        <img src="eg37-duo.jpg" alt="Torres de Iluminación">
-                    </div>
-                    <div class="solution-content">
-                        <div class="icon-wrapper"><i class="fa-solid fa-lightbulb"></i></div>
-                        <h3>Torres LED Industriales</h3>
-                        <p>Iluminación de alto rendimiento para turnos nocturnos. Mástil telescópico y amplio rango de cobertura lumínica.</p>
-                        <ul class="features-list">
-                            <li><i class="fa-solid fa-check"></i> Mástil de hasta 9 metros</li>
-                            <li><i class="fa-solid fa-check"></i> Rotación 360° direccional</li>
-                            <li><i class="fa-solid fa-check"></i> Norma SERNAGEOMIN</li>
-                        </ul>
-                        <a href="#contacto" class="link-arrow">Solicitar Equipo <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="eg37-faena.jpg" alt="Generador ISI-COM en faena minera"></div>
+  <div class="hero-grad"></div>
+  <div class="hero-lines"></div>
+  <div class="watermark">POWER</div>
+  <div class="hero-content">
+    <div class="hero-tag"><span class="dot"></span> Soporte Industrial 24/7</div>
+    <h1>ENERGÍA<br><span class="accent">IMPARABLE</span><br>PARA LA <span class="bl">INDUSTRIA</span></h1>
+    <p class="hero-desc">Generadores diésel, torres LED y tableros TDF para minería, construcción e industria pesada en el norte de Chile. Sin cortes, sin excusas.</p>
+    <div class="hero-btns">
+      <a href="#contacto" class="btn btn-or"><i class="fa-solid fa-bolt"></i> Cotizar Proyecto</a>
+      <a href="#soluciones" class="btn btn-bl-out">Ver Equipos</a>
+    </div>
+  </div>
+</section>
 
-    <!-- CTA Banner Medio -->
-    <section class="mid-cta">
-        <div class="container">
-            <div class="mid-cta-content reveal">
-                <h2>¿Operación Crítica?</h2>
-                <p>Nuestros técnicos viajan a tu faena. Garantizamos tiempo de respuesta mínimo para evitar paralizaciones costosas.</p>
-                <a href="#contacto" class="btn-primary">Coordinar Asistencia <i class="fa-solid fa-headset"></i></a>
-            </div>
-        </div>
-    </section>
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat rv"><div class="stat-num" data-target="15">0</div><div class="stat-lbl">Años Operando</div></div>
+    <div class="stat rv"><div class="stat-num" data-target="550">0</div><div class="stat-lbl">kVA Máx. Potencia</div></div>
+    <div class="stat rv"><div class="stat-num" data-target="500">0</div><div class="stat-lbl">Proyectos Ejecutados</div></div>
+    <div class="stat rv"><div class="stat-num special">24/7</div><div class="stat-lbl">Soporte en Terreno</div></div>
+  </div>
+</div>
 
-    <!-- Galería / Equipamiento -->
-    <section id="equipamiento">
-        <div class="glow-blob blue"></div>
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="tag">Flota Operativa</div>
-                <h2 class="section-title">Equipamiento <span class="gradient-text">Real</span></h2>
-                <p class="section-desc">Mantenimiento propio y estándares de minería. Sin equipos tercerizados.</p>
-            </div>
-            
-            <div class="eq-grid">
-                <div class="eq-item large reveal">
-                    <img src="hyster-grua.jpg" alt="Grúa Horquilla Hyster">
-                    <div class="eq-overlay">
-                        <div class="eq-detail">
-                            <h4>Grúa Horquilla Hyster 7T</h4>
-                            <p>Capacidad de levante extrema para manipulación segura de generadores en emplazamientos irregulares.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="eq-item reveal" style="transition-delay: 0.1s;">
-                    <img src="tableros.jpg" alt="Tableros TDF">
-                    <div class="eq-overlay">
-                        <div class="eq-detail">
-                            <h4>Tableros TDF (220V/380V)</h4>
-                            <p>Distribución eléctrica con parada de emergencia y protecciones IP65.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="eq-item reveal" style="transition-delay: 0.2s;">
-                    <img src="eg37-motor.jpg" alt="Bancos de Carga">
-                    <div class="eq-overlay">
-                        <div class="eq-detail">
-                            <h4>Bancos de Carga</h4>
-                            <p>Pruebas exhaustivas hasta 550 kVA para certificación de rendimiento.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="eq-item reveal" style="transition-delay: 0.1s;">
-                    <img src="eg24-jaula.jpg" alt="Kit Minero">
-                    <div class="eq-overlay">
-                        <div class="eq-detail">
-                            <h4>Kit Minero Certificado</h4>
-                            <p>Protección antivuelco, corte batería y contención de derrames.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="eq-item reveal" style="transition-delay: 0.2s;">
-                    <img src="eg06-taller.jpg" alt="Taller">
-                    <div class="eq-overlay">
-                        <div class="eq-detail">
-                            <h4>Fabricación a Medida</h4>
-                            <p>Desarrollo en maestranza de estructuras de soporte y protección.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- SOLUCIONES -->
+<section id="soluciones" class="sec sec-dark">
+  <div class="sec-head rv">
+    <div class="sec-tag">Nuestro Core</div>
+    <h2 class="sec-title">SOLUCIONES <b>ENERGÉTICAS</b></h2>
+  </div>
 
-    <!-- Características -->
-    <section id="experiencia">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="tag">El Estándar ISI-COM</div>
-                <h2 class="section-title">Por Qué Nos <span class="gradient-text">Eligen</span></h2>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feat-card reveal">
-                    <div class="feat-icon"><i class="fa-solid fa-truck-fast"></i></div>
-                    <h4>Logística Propia</h4>
-                    <p>Despliegue rápido con nuestra propia flota de transporte y grúas de posicionamiento.</p>
-                </div>
-                <div class="feat-card reveal" style="transition-delay: 0.1s;">
-                    <div class="feat-icon"><i class="fa-solid fa-wrench"></i></div>
-                    <h4>Mantenimiento</h4>
-                    <p>Preventivo y correctivo en terreno. Taller especializado para refacciones complejas.</p>
-                </div>
-                <div class="feat-card reveal" style="transition-delay: 0.2s;">
-                    <div class="feat-icon"><i class="fa-solid fa-helmet-safety"></i></div>
-                    <h4>Normativa Minera</h4>
-                    <p>Todos nuestros equipos cumplen de forma estricta los reglamentos de seguridad vigentes.</p>
-                </div>
-                <div class="feat-card reveal" style="transition-delay: 0.3s;">
-                    <div class="feat-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
-                    <h4>Respuesta 24/7</h4>
-                    <p>Un equipo de guardia disponible en todo momento. Su contingencia es nuestra prioridad.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="sol-row rv">
+    <div class="sol-img"><img src="eg37-interior.jpg" alt="Interior generador ISI-COM"></div>
+    <div class="sol-body">
+      <div class="sol-num">01</div>
+      <h3>GRUPOS ELECTRÓGENOS</h3>
+      <p>Potencia diésel de 20 a 550 kVA con motores CAT, Perkins y Cummins. Transporte, instalación y puesta en marcha incluidos.</p>
+      <ul class="sol-features">
+        <li><i class="fa-solid fa-bolt"></i> Rango: 20 kVA – 550 kVA</li>
+        <li><i class="fa-solid fa-shield-halved"></i> Kit minero: jaula + bandeja contención</li>
+        <li><i class="fa-solid fa-truck-fast"></i> Despliegue rápido en terreno</li>
+      </ul>
+      <a href="#contacto" class="sol-link">Cotizar ahora <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
 
-    <!-- Contacto -->
-    <section id="contacto">
-        <div class="glow-blob orange" style="top: -100px; left: -200px; opacity: 0.1;"></div>
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info reveal">
-                    <div class="tag">Conversemos</div>
-                    <h3>Dimensionamos su Proyecto <span class="gradient-text">Sin Costo</span></h3>
-                    <p>Contáctenos mediante nuestros canales oficiales o completando el formulario. Un ingeniero de proyectos asignado evaluará la potencia real requerida.</p>
-                    
-                    <div class="contact-methods">
-                        <div class="cm-item">
-                            <div class="cm-icon"><i class="fa-solid fa-phone"></i></div>
-                            <div class="cm-text">
-                                <h5>Línea Directa</h5>
-                                <a href="tel:+56947623264">+56 9 4762 3264</a>
-                            </div>
-                        </div>
-                        <div class="cm-item">
-                            <div class="cm-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                            <div class="cm-text">
-                                <h5>WhatsApp Terreno</h5>
-                                <a href="https://wa.me/56947623264" target="_blank">Chat Directo</a>
-                            </div>
-                        </div>
-                        <div class="cm-item">
-                            <div class="cm-icon"><i class="fa-solid fa-envelope"></i></div>
-                            <div class="cm-text">
-                                <h5>Correo Corporativo</h5>
-                                <a href="mailto:Ventas@isi-com.cl">Ventas@isi-com.cl</a>
-                            </div>
-                        </div>
-                        <div class="cm-item">
-                            <div class="cm-icon"><i class="fa-solid fa-location-dot"></i></div>
-                            <div class="cm-text">
-                                <h5>Operaciones</h5>
-                                <span>Norte de Chile</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form reveal" style="transition-delay: 0.2s;">
-                    <form action="#" method="POST">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Nombre Completo</label>
-                                <input type="text" placeholder="Ej. Juan Pérez" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Empresa</label>
-                                <input type="text" placeholder="Razón Social">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Teléfono</label>
-                                <input type="tel" placeholder="+56 9 0000 0000" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Correo Electrónico</label>
-                                <input type="email" placeholder="correo@empresa.cl" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Suministro Requerido</label>
-                            <select required>
-                                <option value="">Seleccione una opción</option>
-                                <option>Arriendo Generador (20-550kVA)</option>
-                                <option>Torres de Iluminación</option>
-                                <option>Tableros o Bancos de Carga</option>
-                                <option>Mantenimiento de Equipos</option>
-                                <option>Otro Servicio</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Detalles del Proyecto</label>
-                            <textarea placeholder="Indíquenos la ubicación de la faena, días de utilización y requerimientos específicos..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">Enviar Requerimiento <i class="fa-solid fa-paper-plane" style="margin-left: 0.5rem;"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="sol-row flip rv">
+    <div class="sol-img"><img src="eg37-duo.jpg" alt="Torres LED ISI-COM"></div>
+    <div class="sol-body">
+      <div class="sol-num">02</div>
+      <h3>TORRES LED DE FAENA</h3>
+      <p>Iluminación autónoma de alto rendimiento para faenas 24/7. Mástil telescópico, cobertura 360° y consumo eficiente.</p>
+      <ul class="sol-features">
+        <li><i class="fa-solid fa-bolt"></i> Mástiles hasta 9 metros de altura</li>
+        <li><i class="fa-solid fa-shield-halved"></i> Resistente a viento y polvo abrasivo</li>
+        <li><i class="fa-solid fa-certificate"></i> Cumple normativa SERNAGEOMIN</li>
+      </ul>
+      <a href="#contacto" class="sol-link">Cotizar ahora <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <img src="logo-isicom.jpg" alt="ISI-COM SPA Logo">
-                        <span class="logo-text"><span>ISI</span><em>-COM</em></span>
-                    </a>
-                    <p>Soporte ininterrumpido y potencia confiable para el desarrollo industrial y minero en el norte de nuestro país.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h5>Navegación Rápidas</h5>
-                    <ul>
-                        <li><a href="#inicio">Página Principal</a></li>
-                        <li><a href="#soluciones">Servicios</a></li>
-                        <li><a href="#equipamiento">Nuestra Flota</a></li>
-                        <li><a href="#contacto">Cotizaciones</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h5>Soluciones</h5>
-                    <ul>
-                        <li><a href="#soluciones">Grupos Electrógenos</a></li>
-                        <li><a href="#soluciones">Torres LED</a></li>
-                        <li><a href="#equipamiento">Bancos de Carga</a></li>
-                        <li><a href="#experiencia">Servicio Técnico</a></li>
-                    </ul>
-                </div>
+  <div class="sol-row rv">
+    <div class="sol-img"><img src="eg37-motor.jpg" alt="Tableros y bancos de carga"></div>
+    <div class="sol-body">
+      <div class="sol-num">03</div>
+      <h3>TABLEROS TDF & BANCOS DE CARGA</h3>
+      <p>Distribución eléctrica certificada 220V/380V y pruebas de capacidad real de generadores con bancos portátiles de hasta 550 kW.</p>
+      <ul class="sol-features">
+        <li><i class="fa-solid fa-bolt"></i> Tableros TDF-2 y TDF-4 certificados</li>
+        <li><i class="fa-solid fa-gauge-high"></i> Bancos de carga hasta 550 kVA</li>
+        <li><i class="fa-solid fa-lock"></i> Parada de emergencia integrada</li>
+      </ul>
+      <a href="#contacto" class="sol-link">Cotizar ahora <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
 
-                <div class="footer-col">
-                    <h5>Emergencias 24/7</h5>
-                    <ul>
-                        <li><a href="tel:+56947623264"><i class="fa-solid fa-phone" style="margin-right: 0.5rem;"></i> +56 9 4762 3264</a></li>
-                        <br>
-                        <li><span style="color: var(--text-secondary); font-size: 0.85rem;">Atención inmediata para detenciones no programadas en faena.</span></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 ISI-COM SPA. Todos los derechos reservados.</p>
-                <p>Fabricado y Operado en el Norte de Chile.</p>
-            </div>
-        </div>
-    </footer>
+<!-- FLOTA -->
+<section id="flota" class="sec sec-alt">
+  <div class="sec-head rv">
+    <div class="sec-tag">Flota Real</div>
+    <h2 class="sec-title">EQUIPAMIENTO <b>ISI-COM</b></h2>
+  </div>
+  <div class="fleet-grid">
+    <div class="fleet-card rv">
+      <img class="fc-img" src="hyster-grua.jpg" alt="Grúa Hyster ISI-COM">
+      <div class="fc-body">
+        <div class="fc-name">GRÚA HYSTER 7 TON</div>
+        <div class="fc-desc">Logística propia para carga y posicionamiento preciso de equipos pesados en cualquier terreno.</div>
+      </div>
+    </div>
+    <div class="fleet-card rv">
+      <img class="fc-img" src="eg24-jaula.jpg" alt="Generador con kit minero">
+      <div class="fc-body">
+        <div class="fc-name">KIT MINERO COMPLETO</div>
+        <div class="fc-desc">Jaula antivuelco y bandeja de contención fabricadas a medida con certificación SERNAGEOMIN.</div>
+      </div>
+    </div>
+    <div class="fleet-card rv">
+      <img class="fc-img" src="eg06-taller.jpg" alt="Taller ISI-COM">
+      <div class="fc-body">
+        <div class="fc-name">TALLER CENTRAL</div>
+        <div class="fc-desc">Overhauling preventivo completo. Cada equipo pasa por revisión exhaustiva antes de salir a faena.</div>
+      </div>
+    </div>
+    <div class="fleet-card rv">
+      <img class="fc-img" src="eg37-lateral.jpg" alt="Generador lateral ISI-COM">
+      <div class="fc-body">
+        <div class="fc-name">FABRICACIÓN ESTRUCTURAL</div>
+        <div class="fc-desc">Diseño y construcción de estructuras metálicas personalizadas para cada requerimiento operacional.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Header Scroll Effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(2, 4, 8, 0.9)';
-                header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
-                header.style.padding = '0.5rem 0';
-            } else {
-                header.style.background = 'rgba(2, 4, 8, 0.7)';
-                header.style.boxShadow = 'none';
-                header.style.padding = '0';
-            }
-        });
+<!-- CTA -->
+<section class="cta-band">
+  <h2 class="rv">¿NECESITAS ENERGÍA PARA TU PROYECTO?</h2>
+  <p class="rv">Cotiza sin compromiso. Respuesta en menos de 24 hrs con la solución exacta para tu faena.</p>
+  <a href="#contacto" class="cta-dark rv"><i class="fa-solid fa-bolt"></i> Cotizar Ahora</a>
+</section>
 
-        // Scroll Reveal Animation
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        // Trigger once on load
-        reveal();
-    </script>
+<!-- CONTACTO -->
+<section id="contacto" class="sec sec-dark">
+  <div class="sec-head rv">
+    <div class="sec-tag">Hablemos</div>
+    <h2 class="sec-title">SOLICITA TU <b>COTIZACIÓN</b></h2>
+  </div>
+  <div class="contact-grid">
+    <div class="ct-left rv">
+      <h3>LA FALLA ELÉCTRICA CUESTA MILLONES</h3>
+      <p>Cuéntanos qué necesitas y nuestro equipo técnico armará la solución más eficiente para tu operación minera o industrial.</p>
+      <div class="ct-row">
+        <div class="ct-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <div class="ct-row-info"><a href="https://wa.me/56947623264">+56 9 4762 3264</a><small>Línea directa de urgencias</small></div>
+      </div>
+      <div class="ct-row">
+        <div class="ct-icon"><i class="fa-solid fa-envelope"></i></div>
+        <div class="ct-row-info"><a href="mailto:Ventas@isi-com.cl">Ventas@isi-com.cl</a><small>Licitaciones y cotizaciones</small></div>
+      </div>
+      <div class="ct-row">
+        <div class="ct-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
+        <div class="ct-row-info"><span style="color:var(--wh);font-weight:700">Norte de Chile</span><small>Cobertura Arica – Atacama</small></div>
+      </div>
+    </div>
+    <form class="ct-form rv" action="#" method="POST">
+      <h4>SOLICITAR ASESORÍA TÉCNICA</h4>
+      <div class="fg-row">
+        <div class="fg"><input type="text" name="nombre" placeholder="Nombre" required></div>
+        <div class="fg"><input type="text" name="empresa" placeholder="Empresa"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><input type="tel" name="telefono" placeholder="Teléfono" required></div>
+        <div class="fg"><input type="email" name="email" placeholder="Email" required></div>
+      </div>
+      <div class="fg">
+        <select name="servicio" required>
+          <option value="" disabled selected>Tipo de necesidad...</option>
+          <option>Generador (Respaldo)</option>
+          <option>Generador (Uso Continuo)</option>
+          <option>Torres de Iluminación LED</option>
+          <option>Bancos de Carga / Pruebas</option>
+          <option>Tableros TDF</option>
+          <option>Mantención Electromecánica</option>
+          <option>Fabricación Kit Minero</option>
+        </select>
+      </div>
+      <div class="fg"><textarea name="mensaje" placeholder="Potencia estimada, ubicación de la faena, plazo..."></textarea></div>
+      <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Enviar Cotización</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div class="ftr-left">
+      <img src="logo-isicom.jpg" alt="ISI-COM">
+      <span>ISI-COM SPA</span>
+    </div>
+    <div class="ftr-soc">
+      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://wa.me/56947623264" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+    <div class="ftr-copy">&copy; 2026 ISI-COM SPA &middot; Energía industrial sin interrupciones.</div>
+  </div>
+</footer>
+
+<script>
+// ── Particles Canvas ──
+(function(){
+  const c=document.getElementById('particles'),ctx=c.getContext('2d');
+  let w,h,pts=[];
+  function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
+  resize();addEventListener('resize',resize);
+  for(let i=0;i<60;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:Math.random()*1.5+.5});
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for(const p of pts){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(247,148,29,.15)';ctx.fill();
+    }
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<150){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(41,171,226,${.06*(1-d/150)})`;ctx.stroke()}
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── Header scroll ──
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>50));
+
+// ── Burger ──
+const burger=document.getElementById('burger'),mob=document.getElementById('mob');
+burger.addEventListener('click',()=>{mob.classList.toggle('open');burger.querySelector('i').classList.toggle('fa-bars');burger.querySelector('i').classList.toggle('fa-xmark')});
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');burger.querySelector('i').classList.add('fa-bars');burger.querySelector('i').classList.remove('fa-xmark')}));
+
+// ── Reveal on scroll ──
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');if(e.target.classList.contains('stat'))animateNum(e.target.querySelector('.stat-num'))}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// ── Counter animation ──
+function animateNum(el){
+  if(!el||el.classList.contains('special')||el.dataset.done)return;
+  el.dataset.done='1';
+  const target=parseInt(el.dataset.target);if(isNaN(target))return;
+  let cur=0;const step=Math.ceil(target/60);
+  const iv=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(iv)}el.textContent=cur+(target<100?'+':'')},25);
+}
+</script>
 </body>
 </html>
