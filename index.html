@@ -40,9 +40,8 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 .hero-grad{position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(5,6,8,.98) 0%,rgba(5,6,8,.85) 40%,rgba(5,6,8,.3) 70%,rgba(5,6,8,.15) 100%)}
 .hero-lines{position:absolute;inset:0;z-index:3;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.012) 3px,rgba(255,255,255,.012) 4px);pointer-events:none}
 .hero-content{position:relative;z-index:10;max-width:680px;padding:100px 0}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(247,148,29,.1);border:1px solid rgba(247,148,29,.3);padding:6px 16px;margin-bottom:28px;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--or);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
-.hero-tag .dot{width:6px;height:6px;background:var(--or);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.5)}}
+.hero-loc{display:flex;align-items:center;gap:10px;margin-bottom:28px;font-size:.85rem;color:var(--tx);font-weight:400}
+.hero-loc i{color:var(--or);font-size:.9rem}
 .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7rem);color:var(--wh);line-height:.95;letter-spacing:2px;margin-bottom:24px}
 .hero h1 .accent{color:var(--or);position:relative}
 .hero h1 .accent::after{content:'';position:absolute;bottom:5px;left:0;width:100%;height:8px;background:var(--or);opacity:.2}
@@ -51,7 +50,7 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
 
 /* big watermark */
-.watermark{position:absolute;bottom:-5%;right:-5%;z-index:4;font-family:'Bebas Neue',sans-serif;font-size:28vw;color:rgba(255,255,255,.015);line-height:.85;pointer-events:none;user-select:none}
+.watermark{position:absolute;bottom:-5%;right:-5%;z-index:4;font-family:'Bebas Neue',sans-serif;font-size:22vw;color:rgba(255,255,255,.012);line-height:.85;pointer-events:none;user-select:none}
 
 /* ─── DIAGONAL DIVIDER ─── */
 .diag{width:100%;height:80px;position:relative;z-index:10}
@@ -80,7 +79,7 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 .sol-row.flip{direction:rtl}
 .sol-row.flip>*{direction:ltr}
 .sol-img{position:relative;overflow:hidden}
-.sol-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease;filter:brightness(.7) contrast(1.1)}
+.sol-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease;filter:brightness(.85) contrast(1.05)}
 .sol-row:hover .sol-img img{transform:scale(1.06)}
 .sol-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bk2) 0%,transparent 40%)}
 .sol-row.flip .sol-img::after{background:linear-gradient(-90deg,var(--bk2) 0%,transparent 40%)}
@@ -103,8 +102,8 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 .fleet-card:hover{border-color:var(--or);transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.6)}
 .fleet-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--or),var(--bl));opacity:0;transition:.4s}
 .fleet-card:hover::before{opacity:1}
-.fc-img{width:100%;height:240px;object-fit:cover;filter:grayscale(70%) brightness(.8);transition:.6s}
-.fleet-card:hover .fc-img{filter:grayscale(0%) brightness(1)}
+.fc-img{width:100%;height:240px;object-fit:cover;transition:.6s}
+.fleet-card:hover .fc-img{transform:scale(1.04)}
 .fc-body{padding:24px}
 .fc-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--wh);letter-spacing:1px;margin-bottom:8px}
 .fc-desc{font-size:.85rem;line-height:1.7;color:var(--tx)}
@@ -209,11 +208,11 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
   <div class="hero-bg"><img src="eg37-faena.jpg" alt="Generador ISI-COM en faena minera"></div>
   <div class="hero-grad"></div>
   <div class="hero-lines"></div>
-  <div class="watermark">POWER</div>
+  <div class="watermark">ISI-COM</div>
   <div class="hero-content">
-    <div class="hero-tag"><span class="dot"></span> Soporte Industrial 24/7</div>
-    <h1>ENERGÍA<br><span class="accent">IMPARABLE</span><br>PARA LA <span class="bl">INDUSTRIA</span></h1>
-    <p class="hero-desc">Generadores diésel, torres LED y tableros TDF para minería, construcción e industria pesada en el norte de Chile. Sin cortes, sin excusas.</p>
+    <div class="hero-loc"><i class="fa-solid fa-location-dot"></i> Oficina Anita 256, Norte de Chile</div>
+    <h1>ARRIENDO DE<br><span class="accent">GENERADORES</span><br>Y EQUIPOS <span class="bl">MINEROS</span></h1>
+    <p class="hero-desc">Grupos electrógenos de 20 a 550 kVA, torres LED y tableros TDF con kit minero completo. Transporte, instalación y soporte técnico en tu faena.</p>
     <div class="hero-btns">
       <a href="#contacto" class="btn btn-or"><i class="fa-solid fa-bolt"></i> Cotizar Proyecto</a>
       <a href="#soluciones" class="btn btn-bl-out">Ver Equipos</a>
@@ -348,8 +347,8 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
         <div class="ct-row-info"><a href="mailto:Ventas@isi-com.cl">Ventas@isi-com.cl</a><small>Licitaciones y cotizaciones</small></div>
       </div>
       <div class="ct-row">
-        <div class="ct-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
-        <div class="ct-row-info"><span style="color:var(--wh);font-weight:700">Norte de Chile</span><small>Cobertura Arica – Atacama</small></div>
+        <div class="ct-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div class="ct-row-info"><span style="color:var(--wh);font-weight:700">Oficina Anita 256</span><small>Norte de Chile · Cobertura Arica – Atacama</small></div>
       </div>
     </div>
     <form class="ct-form rv" action="#" method="POST">
@@ -392,7 +391,7 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
       <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://wa.me/56947623264" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
-    <div class="ftr-copy">&copy; 2026 ISI-COM SPA &middot; Energía industrial sin interrupciones.</div>
+    <div class="ftr-copy">&copy; 2026 ISI-COM SPA &middot; Oficina Anita 256, Norte de Chile</div>
   </div>
 </footer>
 
