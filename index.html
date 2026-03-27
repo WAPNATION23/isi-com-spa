@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ISI-COM SPA · Arriendo de Generadores · Todo Chile</title>
 <meta name="description" content="ISI-COM SPA — Arriendo de Grupos Electrógenos de 10 a 1000 kVA, Torres LED, Tableros TDF. 15 años de experiencia, cobertura en todo Chile.">
+<link rel="icon" type="image/jpeg" href="logo-isicom.jpg">
+<!-- Open Graph -->
+<meta property="og:title" content="ISI-COM SPA · Arriendo de Generadores · Todo Chile">
+<meta property="og:description" content="Grupos electrógenos de 10 a 1.000 kVA, torres LED y tableros TDF. 15 años en minería e industria.">
+<meta property="og:image" content="https://wapnation23.github.io/isi-com-spa/generador-exterior.jpg">
+<meta property="og:url" content="https://wapnation23.github.io/isi-com-spa/">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -364,7 +371,7 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
   </div>
 
   <div class="sol-row flip rv">
-    <div class="sol-img"><img src="generador-perspectiva.jpg" alt="Torres LED ISI-COM"></div>
+    <div class="sol-img"><img src="torre-iluminacion.png" alt="Torres de Iluminación LED ISI-COM"></div>
     <div class="sol-body">
       <div class="sol-num">02</div>
       <h3>Torres de Iluminación LED</h3>
@@ -436,6 +443,7 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
     <img src="tableros.jpg" alt="Tableros TDF">
     <img src="eg37-motor.jpg" alt="Motor">
     <img src="generador-perspectiva.jpg" alt="Generador perspectiva">
+    <img src="torre-iluminacion.png" alt="Torre iluminación">
     <img src="eg37-faena.jpg" alt="Faena">
     <img src="generador-exterior.jpg" alt="Generador exterior">
     <img src="eg37-duo.jpg" alt="Generadores">
@@ -645,7 +653,7 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 </section>
 
 <!-- MAPA -->
-<section class="map-section" style="position:relative;z-index:10;background:var(--bk2);padding:60px 5vw 0">
+<section class="map-section" style="position:relative;z-index:10;background:var(--bk2);padding:60px 5vw 60px">
   <div style="text-align:center;margin-bottom:30px">
     <div class="sec-tag">Ubicación</div>
     <h2 class="sec-title" style="font-size:clamp(1.6rem,3.5vw,2.6rem)">Nuestra <b>Sucursal</b></h2>
@@ -747,7 +755,7 @@ function animateNum(el){
   el.dataset.done='1';
   const target=parseInt(el.dataset.target);if(isNaN(target))return;
   let cur=0;const step=Math.ceil(target/50);
-  const iv=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(iv)}el.textContent=cur+(target<100?'+':'+')},30);
+  const iv=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(iv)}el.textContent=(target>=100?cur.toLocaleString('es-CL'):cur)+'+'},30);
 }
 
 // -- Form: Email (FormSubmit) + WhatsApp --
