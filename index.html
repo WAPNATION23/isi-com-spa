@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ISI-COM SPA · Generadores y Energía Industrial · Norte de Chile</title>
-<meta name="description" content="ISI-COM SPA — Arriendo de Grupos Electrógenos, Torres LED, Tableros TDF. Soporte 24/7 minería e industria, norte de Chile.">
+<title>ISI-COM SPA · Generadores y Energía Industrial · Antofagasta</title>
+<meta name="description" content="ISI-COM SPA — Arriendo de Grupos Electrógenos, Torres LED, Tableros TDF. Soporte 24/7 minería e industria, II Región de Antofagasta.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,7 +14,7 @@
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflow-x:hidden}
 
-/* ─── CANVAS PARTICLES ─── */
+/* ─── CANVAS ─── */
 #particles{position:fixed;inset:0;z-index:0;pointer-events:none}
 
 /* ─── HEADER ─── */
@@ -40,23 +40,30 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 .hero-grad{position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(5,6,8,.98) 0%,rgba(5,6,8,.85) 40%,rgba(5,6,8,.3) 70%,rgba(5,6,8,.15) 100%)}
 .hero-lines{position:absolute;inset:0;z-index:3;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.012) 3px,rgba(255,255,255,.012) 4px);pointer-events:none}
 .hero-content{position:relative;z-index:10;max-width:680px;padding:100px 0}
-.hero-loc{display:flex;align-items:center;gap:10px;margin-bottom:28px;font-size:.85rem;color:var(--tx);font-weight:400}
-.hero-loc i{color:var(--or);font-size:.9rem}
 .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7rem);color:var(--wh);line-height:.95;letter-spacing:2px;margin-bottom:24px}
 .hero h1 .accent{color:var(--or);position:relative}
 .hero h1 .accent::after{content:'';position:absolute;bottom:5px;left:0;width:100%;height:8px;background:var(--or);opacity:.2}
 .hero h1 .bl{color:var(--bl)}
 .hero-desc{font-size:1.1rem;line-height:1.8;max-width:520px;margin-bottom:40px;color:var(--tx)}
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
-
-/* big watermark */
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:50px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;font-weight:800;font-size:.88rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:.3s;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px))}
+.btn-or{background:var(--or);color:#000}
+.btn-or:hover{background:#ffab40;transform:translateY(-3px);box-shadow:0 12px 30px rgba(247,148,29,.3)}
+.btn-bl-out{background:transparent;color:var(--bl);border:2px solid var(--bl)}
+.btn-bl-out:hover{background:var(--bl);color:#000;transform:translateY(-3px)}
+.hero-trust{display:flex;align-items:center;gap:20px;padding-top:30px;border-top:1px solid rgba(255,255,255,.06)}
+.hero-trust-item{display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.5);font-weight:600}
+.hero-trust-item i{color:var(--or);font-size:.9rem}
 .watermark{position:absolute;bottom:-5%;right:-5%;z-index:4;font-family:'Bebas Neue',sans-serif;font-size:22vw;color:rgba(255,255,255,.012);line-height:.85;pointer-events:none;user-select:none}
 
-/* ─── DIAGONAL DIVIDER ─── */
-.diag{width:100%;height:80px;position:relative;z-index:10}
-.diag svg{display:block;width:100%;height:100%}
+/* ─── TICKER ─── */
+.ticker{position:relative;z-index:10;background:var(--or);overflow:hidden;padding:14px 0;border-bottom:3px solid rgba(0,0,0,.2)}
+.ticker-track{display:flex;gap:60px;animation:scroll 25s linear infinite;width:max-content}
+.ticker-track span{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:4px;color:#000;white-space:nowrap;display:flex;align-items:center;gap:12px}
+.ticker-track span i{font-size:.6rem;opacity:.5}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ─── STATS BAR ─── */
+/* ─── STATS ─── */
 .stats{position:relative;z-index:10;background:var(--bk2);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
 .stats-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:1200px;margin:0 auto;padding:50px 5vw}
 .stat{text-align:center;position:relative}
@@ -73,6 +80,7 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 .sec-tag::before,.sec-tag::after{content:'';width:30px;height:2px;background:var(--bl);opacity:.4}
 .sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);color:var(--wh);letter-spacing:3px;line-height:1}
 .sec-title b{color:var(--or)}
+.sec-sub{font-size:1rem;color:var(--tx);max-width:550px;margin:18px auto 0;line-height:1.7}
 
 /* ─── SOLUTIONS ─── */
 .sol-row{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:2px;min-height:550px;position:relative;overflow:hidden}
@@ -96,7 +104,33 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 .sol-link{display:inline-flex;align-items:center;gap:10px;color:var(--or);font-weight:700;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:.3s}
 .sol-link:hover{gap:18px;color:var(--bl)}
 
-/* ─── FLEET GRID ─── */
+/* ─── PROCESO ─── */
+.proceso-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:60px}
+.proceso-grid::before{content:'';position:absolute;top:48px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--or),var(--bl));z-index:1}
+.paso{text-align:center;position:relative;padding:0 20px}
+.paso-num{width:96px;height:96px;margin:0 auto 28px;background:var(--bk);border:2px solid var(--or);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--or);position:relative;z-index:2;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);transition:.4s}
+.paso:hover .paso-num{background:var(--or);color:#000;transform:scale(1.1)}
+.paso-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--wh);letter-spacing:1px;margin-bottom:8px}
+.paso-desc{font-size:.83rem;line-height:1.6;color:var(--tx)}
+
+/* ─── GALERIA ─── */
+.gallery{position:relative;z-index:10;overflow:hidden}
+.gallery-track{display:flex;gap:4px;animation:galleryScroll 30s linear infinite}
+.gallery-track img{height:280px;width:auto;object-fit:cover;flex-shrink:0;filter:brightness(.8);transition:.4s}
+.gallery-track img:hover{filter:brightness(1);transform:scale(1.03)}
+@keyframes galleryScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ─── SECTORES ─── */
+.sectores-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+.sector{background:var(--bk);border:1px solid rgba(255,255,255,.04);padding:40px 30px;text-align:center;position:relative;overflow:hidden;transition:.4s}
+.sector::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--or);transform:scaleX(0);transition:.4s}
+.sector:hover{border-color:rgba(247,148,29,.3);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.sector:hover::before{transform:scaleX(1)}
+.sector-icon{font-size:2.8rem;margin-bottom:20px;background:linear-gradient(135deg,var(--or),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sector-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--wh);letter-spacing:2px;margin-bottom:8px}
+.sector-desc{font-size:.85rem;line-height:1.7;color:var(--tx)}
+
+/* ─── FLEET ─── */
 .fleet-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .fleet-card{position:relative;overflow:hidden;background:var(--bk);border:1px solid rgba(255,255,255,.04);transition:.5s;cursor:default}
 .fleet-card:hover{border-color:var(--or);transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.6)}
@@ -108,7 +142,17 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 .fc-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--wh);letter-spacing:1px;margin-bottom:8px}
 .fc-desc{font-size:.85rem;line-height:1.7;color:var(--tx)}
 
-/* ─── CTA BAND ─── */
+/* ─── VENTAJAS ─── */
+.vent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:60px}
+.vent{display:flex;gap:24px;align-items:flex-start;background:var(--bk2);border:1px solid rgba(255,255,255,.04);padding:35px;transition:.4s;position:relative;overflow:hidden}
+.vent::after{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:var(--or);transition:.4s}
+.vent:hover{border-color:rgba(41,171,226,.2);transform:translateX(6px)}
+.vent:hover::after{height:100%}
+.vent-icon{width:60px;height:60px;flex-shrink:0;background:rgba(247,148,29,.06);border:1px solid rgba(247,148,29,.15);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--or);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+.vent-info h4{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--wh);letter-spacing:1px;margin-bottom:6px}
+.vent-info p{font-size:.85rem;line-height:1.7;color:var(--tx)}
+
+/* ─── CTA ─── */
 .cta-band{position:relative;z-index:10;padding:80px 5vw;text-align:center;overflow:hidden}
 .cta-band::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--or),#e07a0a 50%,var(--bl));z-index:1}
 .cta-band::after{content:'';position:absolute;inset:0;z-index:2;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(0,0,0,.06) 20px,rgba(0,0,0,.06) 40px)}
@@ -128,7 +172,6 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 .ct-row-info a{color:var(--wh);text-decoration:none;font-weight:700;transition:.3s}
 .ct-row-info a:hover{color:var(--or)}
 .ct-row-info small{display:block;color:var(--or);font-size:.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:3px}
-
 .ct-form{background:var(--bk3);border:1px solid rgba(255,255,255,.06);padding:50px;position:relative;clip-path:polygon(0 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%)}
 .ct-form::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--or),var(--bl))}
 .ct-form h4{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--wh);letter-spacing:2px;margin-bottom:30px}
@@ -143,14 +186,29 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 
 /* ─── FOOTER ─── */
 .ftr{background:#020304;border-top:1px solid rgba(255,255,255,.04);padding:50px 5vw 30px;position:relative;z-index:10}
-.ftr-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
-.ftr-left{display:flex;align-items:center;gap:15px}
-.ftr-left img{height:34px;background:#fff;padding:2px;border-radius:2px;filter:grayscale(100%) opacity(.4)}
-.ftr-left span{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:rgba(255,255,255,.3);letter-spacing:3px}
-.ftr-copy{font-size:.78rem;color:rgba(255,255,255,.2);letter-spacing:1px}
+.ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;margin-bottom:40px}
+.ftr-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ftr-brand img{height:36px;background:#fff;padding:2px;border-radius:2px}
+.ftr-brand span{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--wh);letter-spacing:3px}
+.ftr-desc{font-size:.85rem;color:rgba(255,255,255,.3);line-height:1.7;max-width:280px}
+.ftr-col-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--wh);letter-spacing:2px;margin-bottom:16px}
+.ftr-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ftr-links a{color:rgba(255,255,255,.3);text-decoration:none;font-size:.85rem;transition:.3s}
+.ftr-links a:hover{color:var(--or)}
+.ftr-contact-item{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:.85rem;color:rgba(255,255,255,.3)}
+.ftr-contact-item i{color:var(--or);width:16px;text-align:center}
+.ftr-contact-item a{color:rgba(255,255,255,.3);text-decoration:none;transition:.3s}
+.ftr-contact-item a:hover{color:var(--or)}
+.ftr-bottom{border-top:1px solid rgba(255,255,255,.04);padding-top:25px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.ftr-copy{font-size:.78rem;color:rgba(255,255,255,.15);letter-spacing:1px}
 .ftr-soc{display:flex;gap:10px}
 .ftr-soc a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.3);text-decoration:none;transition:.3s;font-size:.85rem}
 .ftr-soc a:hover{border-color:var(--or);color:var(--or);background:rgba(247,148,29,.05)}
+
+/* ─── WHATSAPP FLOAT ─── */
+.wa-float{position:fixed;bottom:30px;right:30px;z-index:1000;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:.3s;animation:floatBounce 3s ease-in-out infinite}
+.wa-float:hover{transform:scale(1.12);box-shadow:0 8px 30px rgba(37,211,102,.6)}
+@keyframes floatBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
 /* ─── REVEAL ─── */
 .rv{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
@@ -172,12 +230,21 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
   .contact-grid{grid-template-columns:1fr}
   .stats-inner{grid-template-columns:repeat(2,1fr);gap:30px}
   .stat:not(:last-child)::after{display:none}
+  .proceso-grid{grid-template-columns:repeat(2,1fr);gap:40px}
+  .proceso-grid::before{display:none}
+  .sectores-grid{grid-template-columns:1fr 1fr}
+  .vent-grid{grid-template-columns:1fr}
+  .ftr-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:600px){
   .fleet-grid{grid-template-columns:1fr}
   .stats-inner{grid-template-columns:1fr}
   .fg-row{grid-template-columns:1fr}
   .hero h1{font-size:3rem}
+  .proceso-grid{grid-template-columns:1fr}
+  .sectores-grid{grid-template-columns:1fr}
+  .ftr-grid{grid-template-columns:1fr}
+  .hero-trust{flex-direction:column;gap:12px}
 }
 </style>
 </head>
@@ -190,7 +257,9 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
   <a href="#" class="logo"><img src="logo-isicom.jpg" alt="ISI-COM SPA"><span class="logo-t"><b>ISI</b>-COM</span></a>
   <nav class="nav-links">
     <a href="#soluciones">Soluciones</a>
+    <a href="#proceso">Proceso</a>
     <a href="#flota">Flota</a>
+    <a href="#sectores">Sectores</a>
     <a href="#contacto">Contacto</a>
   </nav>
   <a href="#contacto" class="hdr-cta"><i class="fa-solid fa-bolt"></i> Cotizar</a>
@@ -198,9 +267,11 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 </header>
 <div class="mob-menu" id="mob">
   <a href="#soluciones">Soluciones</a>
+  <a href="#proceso">Proceso</a>
   <a href="#flota">Flota</a>
+  <a href="#sectores">Sectores</a>
   <a href="#contacto">Contacto</a>
-  <a href="https://wa.me/56947623264" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp 24/7</a>
+  <a href="https://wa.me/56947623264" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
 </div>
 
 <!-- HERO -->
@@ -210,15 +281,41 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
   <div class="hero-lines"></div>
   <div class="watermark">ISI-COM</div>
   <div class="hero-content">
-    <div class="hero-loc"><i class="fa-solid fa-location-dot"></i> Oficina Anita 256, Norte de Chile</div>
     <h1>ARRIENDO DE<br><span class="accent">GENERADORES</span><br>Y EQUIPOS <span class="bl">MINEROS</span></h1>
     <p class="hero-desc">Grupos electrógenos de 20 a 550 kVA, torres LED y tableros TDF con kit minero completo. Transporte, instalación y soporte técnico en tu faena.</p>
     <div class="hero-btns">
       <a href="#contacto" class="btn btn-or"><i class="fa-solid fa-bolt"></i> Cotizar Proyecto</a>
       <a href="#soluciones" class="btn btn-bl-out">Ver Equipos</a>
     </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><i class="fa-solid fa-shield-halved"></i> Norma SERNAGEOMIN</div>
+      <div class="hero-trust-item"><i class="fa-solid fa-clock"></i> Respuesta en 24 hrs</div>
+      <div class="hero-trust-item"><i class="fa-solid fa-truck-fast"></i> Despacho en la II Región</div>
+    </div>
   </div>
 </section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>GENERADORES DIÉSEL <i class="fa-solid fa-diamond"></i></span>
+    <span>TORRES LED <i class="fa-solid fa-diamond"></i></span>
+    <span>TABLEROS TDF <i class="fa-solid fa-diamond"></i></span>
+    <span>BANCOS DE CARGA <i class="fa-solid fa-diamond"></i></span>
+    <span>KIT MINERO <i class="fa-solid fa-diamond"></i></span>
+    <span>SOPORTE 24/7 <i class="fa-solid fa-diamond"></i></span>
+    <span>MANTENCIÓN PREVENTIVA <i class="fa-solid fa-diamond"></i></span>
+    <span>CERTIFICACIÓN MINERA <i class="fa-solid fa-diamond"></i></span>
+    <span>GENERADORES DIÉSEL <i class="fa-solid fa-diamond"></i></span>
+    <span>TORRES LED <i class="fa-solid fa-diamond"></i></span>
+    <span>TABLEROS TDF <i class="fa-solid fa-diamond"></i></span>
+    <span>BANCOS DE CARGA <i class="fa-solid fa-diamond"></i></span>
+    <span>KIT MINERO <i class="fa-solid fa-diamond"></i></span>
+    <span>SOPORTE 24/7 <i class="fa-solid fa-diamond"></i></span>
+    <span>MANTENCIÓN PREVENTIVA <i class="fa-solid fa-diamond"></i></span>
+    <span>CERTIFICACIÓN MINERA <i class="fa-solid fa-diamond"></i></span>
+  </div>
+</div>
 
 <!-- STATS -->
 <div class="stats">
@@ -233,8 +330,9 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 <!-- SOLUCIONES -->
 <section id="soluciones" class="sec sec-dark">
   <div class="sec-head rv">
-    <div class="sec-tag">Nuestro Core</div>
-    <h2 class="sec-title">SOLUCIONES <b>ENERGÉTICAS</b></h2>
+    <div class="sec-tag">Arriendo de Equipos</div>
+    <h2 class="sec-title">NUESTRAS <b>SOLUCIONES</b></h2>
+    <p class="sec-sub">Equipamiento robusto para cada necesidad energética. Desde campamentos hasta plantas de procesamiento.</p>
   </div>
 
   <div class="sol-row rv">
@@ -272,7 +370,7 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
     <div class="sol-body">
       <div class="sol-num">03</div>
       <h3>TABLEROS TDF & BANCOS DE CARGA</h3>
-      <p>Distribución eléctrica certificada 220V/380V y pruebas de capacidad real de generadores con bancos portátiles de hasta 550 kW.</p>
+      <p>Distribución eléctrica certificada 220V/380V y pruebas de capacidad real con bancos portátiles de hasta 550 kW.</p>
       <ul class="sol-features">
         <li><i class="fa-solid fa-bolt"></i> Tableros TDF-2 y TDF-4 certificados</li>
         <li><i class="fa-solid fa-gauge-high"></i> Bancos de carga hasta 550 kVA</li>
@@ -283,11 +381,106 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
   </div>
 </section>
 
+<!-- PROCESO -->
+<section id="proceso" class="sec sec-alt">
+  <div class="sec-head rv">
+    <div class="sec-tag">Cómo Trabajamos</div>
+    <h2 class="sec-title">DEL CONTACTO A <b>LA FAENA</b></h2>
+    <p class="sec-sub">Un proceso directo y sin burocracia. Tu equipo operando en terreno lo antes posible.</p>
+  </div>
+  <div class="proceso-grid">
+    <div class="paso rv">
+      <div class="paso-num">01</div>
+      <div class="paso-title">LEVANTAMIENTO</div>
+      <div class="paso-desc">Evaluamos tu necesidad de potencia, ubicación y condiciones del sitio.</div>
+    </div>
+    <div class="paso rv">
+      <div class="paso-num">02</div>
+      <div class="paso-title">COTIZACIÓN</div>
+      <div class="paso-desc">Propuesta técnica y económica en menos de 24 horas con opciones a medida.</div>
+    </div>
+    <div class="paso rv">
+      <div class="paso-num">03</div>
+      <div class="paso-title">DESPACHO</div>
+      <div class="paso-desc">Transporte con grúa propia e instalación electromecánica en tu faena.</div>
+    </div>
+    <div class="paso rv">
+      <div class="paso-num">04</div>
+      <div class="paso-title">SOPORTE</div>
+      <div class="paso-desc">Mantención programada y técnicos disponibles 24/7 mientras dure el arriendo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA AUTO-SCROLL -->
+<div class="gallery">
+  <div class="gallery-track">
+    <img src="eg37-faena.jpg" alt="Faena">
+    <img src="eg37-interior.jpg" alt="Interior">
+    <img src="eg37-duo.jpg" alt="Generadores">
+    <img src="hyster-grua.jpg" alt="Grúa">
+    <img src="eg24-jaula.jpg" alt="Kit minero">
+    <img src="eg06-taller.jpg" alt="Taller">
+    <img src="eg37-motor.jpg" alt="Motor">
+    <img src="eg37-lateral.jpg" alt="Lateral">
+    <img src="eg37-faena.jpg" alt="Faena">
+    <img src="eg37-interior.jpg" alt="Interior">
+    <img src="eg37-duo.jpg" alt="Generadores">
+    <img src="hyster-grua.jpg" alt="Grúa">
+    <img src="eg24-jaula.jpg" alt="Kit minero">
+    <img src="eg06-taller.jpg" alt="Taller">
+    <img src="eg37-motor.jpg" alt="Motor">
+    <img src="eg37-lateral.jpg" alt="Lateral">
+  </div>
+</div>
+
+<!-- SECTORES -->
+<section id="sectores" class="sec sec-dark">
+  <div class="sec-head rv">
+    <div class="sec-tag">Industrias</div>
+    <h2 class="sec-title">SECTORES QUE <b>ATENDEMOS</b></h2>
+    <p class="sec-sub">Experiencia real en las condiciones más hostiles de la Región de Antofagasta.</p>
+  </div>
+  <div class="sectores-grid">
+    <div class="sector rv">
+      <div class="sector-icon"><i class="fa-solid fa-mountain"></i></div>
+      <div class="sector-name">MINERÍA</div>
+      <div class="sector-desc">Gran minería, mediana minería y plantas de procesamiento. Equipos certificados para altura y condiciones extremas.</div>
+    </div>
+    <div class="sector rv">
+      <div class="sector-icon"><i class="fa-solid fa-building"></i></div>
+      <div class="sector-name">CONSTRUCCIÓN</div>
+      <div class="sector-desc">Obras civiles, montaje industrial y proyectos de infraestructura con necesidad de energía temporal.</div>
+    </div>
+    <div class="sector rv">
+      <div class="sector-icon"><i class="fa-solid fa-oil-well"></i></div>
+      <div class="sector-name">ENERGÍA & PETRÓLEO</div>
+      <div class="sector-desc">Plantas solares, subestaciones y faenas de exploración que requieren respaldo continuo.</div>
+    </div>
+    <div class="sector rv">
+      <div class="sector-icon"><i class="fa-solid fa-ship"></i></div>
+      <div class="sector-name">PORTUARIA</div>
+      <div class="sector-desc">Terminales y zonas de carga donde la continuidad eléctrica es crítica para la operación.</div>
+    </div>
+    <div class="sector rv">
+      <div class="sector-icon"><i class="fa-solid fa-fish"></i></div>
+      <div class="sector-name">PESCA & ACUICULTURA</div>
+      <div class="sector-desc">Plantas de procesamiento y frigoríficos donde un corte de energía significa pérdida total del producto.</div>
+    </div>
+    <div class="sector rv">
+      <div class="sector-icon"><i class="fa-solid fa-calendar-days"></i></div>
+      <div class="sector-name">EVENTOS</div>
+      <div class="sector-desc">Ferias, conciertos y eventos masivos con requerimientos puntuales de potencia y distribución eléctrica.</div>
+    </div>
+  </div>
+</section>
+
 <!-- FLOTA -->
 <section id="flota" class="sec sec-alt">
   <div class="sec-head rv">
     <div class="sec-tag">Flota Real</div>
     <h2 class="sec-title">EQUIPAMIENTO <b>ISI-COM</b></h2>
+    <p class="sec-sub">Flota propia mantenida en nuestro taller. Cada equipo sale revisado y certificado.</p>
   </div>
   <div class="fleet-grid">
     <div class="fleet-card rv">
@@ -321,6 +514,58 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
   </div>
 </section>
 
+<!-- VENTAJAS -->
+<section class="sec sec-dark">
+  <div class="sec-head rv">
+    <div class="sec-tag">Por qué ISI-COM</div>
+    <h2 class="sec-title">VENTAJAS <b>COMPETITIVAS</b></h2>
+  </div>
+  <div class="vent-grid">
+    <div class="vent rv">
+      <div class="vent-icon"><i class="fa-solid fa-truck-moving"></i></div>
+      <div class="vent-info">
+        <h4>LOGÍSTICA PROPIA</h4>
+        <p>Grúa horquilla, camiones y equipo de montaje propio. No dependemos de terceros para cumplir plazos.</p>
+      </div>
+    </div>
+    <div class="vent rv">
+      <div class="vent-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+      <div class="vent-info">
+        <h4>TALLER DE MANTENCIÓN</h4>
+        <p>Mantenciones preventivas y correctivas en nuestro taller central. Historial de servicio verificable por equipo.</p>
+      </div>
+    </div>
+    <div class="vent rv">
+      <div class="vent-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+      <div class="vent-info">
+        <h4>TÉCNICOS EN TERRENO</h4>
+        <p>Personal certificado disponible 24/7 para diagnóstico y reparación directamente en tu faena.</p>
+      </div>
+    </div>
+    <div class="vent rv">
+      <div class="vent-icon"><i class="fa-solid fa-file-contract"></i></div>
+      <div class="vent-info">
+        <h4>SIN INTERMEDIARIOS</h4>
+        <p>Flota 100% propia. Cotización directa, sin subcontratos ni sobrecostos de arriendo a terceros.</p>
+      </div>
+    </div>
+    <div class="vent rv">
+      <div class="vent-icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
+      <div class="vent-info">
+        <h4>ACLIMATADOS AL DESIERTO</h4>
+        <p>Equipos preparados para operar en altura, polvo abrasivo, diferencial térmico extremo y salinidad.</p>
+      </div>
+    </div>
+    <div class="vent rv">
+      <div class="vent-icon"><i class="fa-solid fa-handshake"></i></div>
+      <div class="vent-info">
+        <h4>CONTRATOS FLEXIBLES</h4>
+        <p>Arriendos diarios, semanales, mensuales o por proyecto. Escalamiento de potencia sin penalización.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-band">
   <h2 class="rv">¿NECESITAS ENERGÍA PARA TU PROYECTO?</h2>
@@ -348,7 +593,7 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
       </div>
       <div class="ct-row">
         <div class="ct-icon"><i class="fa-solid fa-location-dot"></i></div>
-        <div class="ct-row-info"><span style="color:var(--wh);font-weight:700">Oficina Anita 256</span><small>Norte de Chile · Cobertura Arica – Atacama</small></div>
+        <div class="ct-row-info"><span style="color:var(--wh);font-weight:700">Antofagasta, II Región</span><small>Cobertura en toda la Región de Antofagasta</small></div>
       </div>
     </div>
     <form class="ct-form rv" action="#" method="POST">
@@ -381,38 +626,70 @@ body{font-family:'Inter',sans-serif;background:var(--bk);color:var(--tx);overflo
 
 <!-- FOOTER -->
 <footer class="ftr">
-  <div class="ftr-inner">
-    <div class="ftr-left">
-      <img src="logo-isicom.jpg" alt="ISI-COM">
-      <span>ISI-COM SPA</span>
+  <div class="ftr-grid">
+    <div>
+      <div class="ftr-brand"><img src="logo-isicom.jpg" alt="ISI-COM"><span>ISI-COM SPA</span></div>
+      <p class="ftr-desc">Soluciones energéticas para minería, construcción e industria. Flota propia, taller central y soporte técnico 24/7 en la Región de Antofagasta.</p>
     </div>
+    <div>
+      <div class="ftr-col-title">NAVEGACIÓN</div>
+      <ul class="ftr-links">
+        <li><a href="#soluciones">Soluciones</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#flota">Flota</a></li>
+        <li><a href="#sectores">Sectores</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ftr-col-title">SERVICIOS</div>
+      <ul class="ftr-links">
+        <li><a href="#soluciones">Generadores Diésel</a></li>
+        <li><a href="#soluciones">Torres LED</a></li>
+        <li><a href="#soluciones">Tableros TDF</a></li>
+        <li><a href="#soluciones">Bancos de Carga</a></li>
+        <li><a href="#soluciones">Kit Minero</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ftr-col-title">CONTACTO</div>
+      <div class="ftr-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+56947623264">+56 9 4762 3264</a></div>
+      <div class="ftr-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:Ventas@isi-com.cl">Ventas@isi-com.cl</a></div>
+      <div class="ftr-contact-item"><i class="fa-solid fa-location-dot"></i>Antofagasta, II Región</div>
+      <div class="ftr-contact-item"><i class="fa-solid fa-clock"></i>Soporte 24/7</div>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <div class="ftr-copy">&copy; 2026 ISI-COM SPA · Todos los derechos reservados</div>
     <div class="ftr-soc">
       <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://wa.me/56947623264" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
-    <div class="ftr-copy">&copy; 2026 ISI-COM SPA &middot; Oficina Anita 256, Norte de Chile</div>
   </div>
 </footer>
 
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/56947623264" target="_blank" class="wa-float" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
 <script>
-// ── Particles Canvas ──
+// ── Particles ──
 (function(){
   const c=document.getElementById('particles'),ctx=c.getContext('2d');
   let w,h,pts=[];
   function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
   resize();addEventListener('resize',resize);
-  for(let i=0;i<60;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:Math.random()*1.5+.5});
+  for(let i=0;i<50;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.2+.4});
   function draw(){
     ctx.clearRect(0,0,w,h);
     for(const p of pts){
       p.x+=p.vx;p.y+=p.vy;
       if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(247,148,29,.15)';ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(247,148,29,.12)';ctx.fill();
     }
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
       const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<150){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(41,171,226,${.06*(1-d/150)})`;ctx.stroke()}
+      if(d<130){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=gba(41,171,226,);ctx.stroke()}
     }
     requestAnimationFrame(draw);
   }
@@ -428,17 +705,17 @@ const burger=document.getElementById('burger'),mob=document.getElementById('mob'
 burger.addEventListener('click',()=>{mob.classList.toggle('open');burger.querySelector('i').classList.toggle('fa-bars');burger.querySelector('i').classList.toggle('fa-xmark')});
 mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');burger.querySelector('i').classList.add('fa-bars');burger.querySelector('i').classList.remove('fa-xmark')}));
 
-// ── Reveal on scroll ──
+// ── Reveal ──
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');if(e.target.classList.contains('stat'))animateNum(e.target.querySelector('.stat-num'))}})},{threshold:.15});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
-// ── Counter animation ──
+// ── Counter ──
 function animateNum(el){
   if(!el||el.classList.contains('special')||el.dataset.done)return;
   el.dataset.done='1';
   const target=parseInt(el.dataset.target);if(isNaN(target))return;
-  let cur=0;const step=Math.ceil(target/60);
-  const iv=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(iv)}el.textContent=cur+(target<100?'+':'')},25);
+  let cur=0;const step=Math.ceil(target/50);
+  const iv=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(iv)}el.textContent=cur+(target<100?'+':'')},30);
 }
 </script>
 </body>
