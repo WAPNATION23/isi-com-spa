@@ -55,14 +55,12 @@ body.loading{overflow:hidden}
 .logo img{height:42px;border-radius:4px}
 .logo-t{font-family:'Outfit',sans-serif;font-size:1.4rem;color:var(--wh);letter-spacing:2px;font-weight:700}
 .logo-t b{color:var(--or)}
-.nav-links{display:flex;gap:2.2rem;align-items:center}
-.nav-links a{color:var(--tx);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:.3s;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--or);transition:.3s;border-radius:2px}
-.nav-links a:hover{color:var(--wh)}
-.nav-links a:hover::after{width:100%}
+.nav-links{display:none}
+.hdr-left{display:flex;align-items:center;gap:8px}
 .hdr-cta{background:var(--or);color:#000;padding:10px 24px;font-weight:700;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:.3s}
 .hdr-cta:hover{background:var(--or-light);transform:translateY(-2px);box-shadow:0 8px 20px rgba(217,138,43,.25)}
-.burger{display:none;background:none;border:none;color:var(--wh);font-size:1.5rem;cursor:pointer}
+.burger{display:flex;align-items:center;justify-content:center;background:none;border:1px solid var(--border);color:var(--wh);font-size:1.2rem;cursor:pointer;width:40px;height:40px;border-radius:8px;transition:.3s}
+.burger:hover{border-color:var(--or);color:var(--or)}
 
 /* ─── HERO ─── */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:0 5vw;overflow:hidden}
@@ -280,13 +278,15 @@ body.loading{overflow:hidden}
 .rv.stg1{transition-delay:.08s}.rv.stg2{transition-delay:.16s}.rv.stg3{transition-delay:.24s}.rv.stg4{transition-delay:.32s}.rv.stg5{transition-delay:.4s}.rv.stg6{transition-delay:.48s}
 
 /* ─── MOBILE ─── */
-.mob-menu{display:none;position:fixed;top:72px;left:0;width:100%;background:var(--bk2);z-index:998;padding:28px 5vw;flex-direction:column;gap:18px;border-bottom:1px solid var(--border)}
-.mob-menu.open{display:flex}
-.mob-menu a{color:var(--wh);text-decoration:none;font-size:.92rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:10px 0;border-bottom:1px solid var(--border)}
+.mob-menu{position:fixed;top:72px;left:0;width:280px;height:calc(100vh - 72px);background:var(--bk2);z-index:998;padding:28px 24px;flex-direction:column;gap:4px;border-right:1px solid var(--border);transform:translateX(-100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex}
+.mob-menu.open{transform:translateX(0)}
+.mob-menu a{color:var(--tx-light);text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:14px 16px;border-radius:8px;transition:.2s}
+.mob-menu a:hover{color:var(--wh);background:rgba(255,255,255,.05)}
+.mob-overlay{position:fixed;inset:0;top:72px;background:rgba(0,0,0,.5);z-index:997;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob-overlay.open{opacity:1;pointer-events:auto}
 
 @media(max-width:1024px){
-  .nav-links,.hdr-cta{display:none}
-  .burger{display:block}
+  .hdr-cta{display:none}
   .sol-row,.sol-row.flip{grid-template-columns:1fr;direction:ltr}
   .sol-row.flip>*{direction:ltr}
   .sol-img{height:320px}
@@ -324,17 +324,13 @@ body.loading{overflow:hidden}
 
 <!-- HEADER -->
 <header class="hdr" id="hdr">
-  <a href="#" class="logo"><img src="logo-isicom.jpg" alt="ISI-COM SPA"><span class="logo-t"><b>ISI</b>-COM</span></a>
-  <nav class="nav-links">
-    <a href="#soluciones">Soluciones</a>
-    <a href="#proceso">Proceso</a>
-    <a href="#flota">Flota</a>
-    <a href="#sectores">Sectores</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+  <div class="hdr-left">
+    <button class="burger" id="burger" aria-label="Menú"><i class="fa-solid fa-bars"></i></button>
+    <a href="#" class="logo"><img src="logo-isicom.jpg" alt="ISI-COM SPA"><span class="logo-t"><b>ISI</b>-COM</span></a>
+  </div>
   <a href="#contacto" class="hdr-cta"><i class="fa-solid fa-bolt"></i> Cotizar</a>
-  <button class="burger" id="burger" aria-label="Menú"><i class="fa-solid fa-bars"></i></button>
 </header>
+<div class="mob-overlay" id="mob-overlay"></div>
 <div class="mob-menu" id="mob">
   <a href="#soluciones">Soluciones</a>
   <a href="#proceso">Proceso</a>
@@ -761,9 +757,12 @@ const hdr=document.getElementById('hdr');
 addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>50));
 
 // -- Burger --
-const burger=document.getElementById('burger'),mob=document.getElementById('mob');
-burger.addEventListener('click',()=>{mob.classList.toggle('open');burger.querySelector('i').classList.toggle('fa-bars');burger.querySelector('i').classList.toggle('fa-xmark')});
-mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');burger.querySelector('i').classList.add('fa-bars');burger.querySelector('i').classList.remove('fa-xmark')}));
+const burger=document.getElementById('burger'),mob=document.getElementById('mob'),mobOv=document.getElementById('mob-overlay');
+function toggleMenu(){mob.classList.toggle('open');mobOv.classList.toggle('open');burger.querySelector('i').classList.toggle('fa-bars');burger.querySelector('i').classList.toggle('fa-xmark')}
+function closeMenu(){mob.classList.remove('open');mobOv.classList.remove('open');burger.querySelector('i').classList.add('fa-bars');burger.querySelector('i').classList.remove('fa-xmark')}
+burger.addEventListener('click',toggleMenu);
+mobOv.addEventListener('click',closeMenu);
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 
 // -- Reveal --
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');if(e.target.classList.contains('stat'))animateNum(e.target.querySelector('.stat-num'))}})},{threshold:.15});
