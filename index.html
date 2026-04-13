@@ -100,7 +100,7 @@ body.loading{overflow:hidden}
 .sec-alt{background:var(--bk2)}
 .sec-head{text-align:center;margin-bottom:70px}
 .sec-tag{font-size:.72rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--bl);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:10px}
-.sec-tag::before,.sec-tag::after{content:'';width:24px;height:1px;background:var(--bl);opacity:.4}
+.sec-tag::before{content:'';width:24px;height:1px;background:var(--bl);opacity:.4}
 .sec-title{font-family:'Outfit',sans-serif;font-size:clamp(2.2rem,4.5vw,3.6rem);color:var(--wh);letter-spacing:-.5px;line-height:1.1;font-weight:800}
 .sec-title b{color:var(--or)}
 .sec-sub{font-size:.95rem;color:var(--tx);max-width:520px;margin:16px auto 0;line-height:1.8}
@@ -144,7 +144,7 @@ body.loading{overflow:hidden}
 @keyframes galleryScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ─── SECTORES ─── */
-.sectores-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
+.sectores-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:60px}
 .sector{background:var(--bk3);border:1px solid var(--border);padding:36px 28px;text-align:center;position:relative;overflow:hidden;transition:.4s;border-radius:8px}
 .sector::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--or),var(--bl));transform:scaleX(0);transition:.4s}
 .sector:hover{border-color:rgba(217,138,43,.2);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
@@ -167,6 +167,7 @@ body.loading{overflow:hidden}
 
 /* ─── VENTAJAS ─── */
 .vent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:60px}
+.vent-grid>.vent:last-child{grid-column:1/-1;max-width:calc(50% - 10px)}
 .vent{display:flex;gap:20px;align-items:flex-start;background:var(--bk3);border:1px solid var(--border);padding:30px;transition:.4s;position:relative;overflow:hidden;border-radius:8px}
 .vent::after{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--or);transition:.4s;border-radius:0 0 2px 2px}
 .vent:hover{border-color:rgba(74,171,204,.15);transform:translateX(4px)}
@@ -297,8 +298,9 @@ body.loading{overflow:hidden}
   .stat:not(:last-child)::after{display:none}
   .proceso-grid{grid-template-columns:repeat(2,1fr);gap:36px}
   .proceso-grid::before{display:none}
-  .sectores-grid{grid-template-columns:1fr 1fr}
+  .sectores-grid{grid-template-columns:1fr}
   .vent-grid{grid-template-columns:1fr}
+  .vent-grid>.vent:last-child{max-width:100%}
   .ftr-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:600px){
@@ -352,9 +354,9 @@ body.loading{overflow:hidden}
       <a href="https://wa.me/56947623264" target="_blank" class="btn btn-bl-out"><i class="fa-brands fa-whatsapp"></i> WhatsApp Directo</a>
     </div>
     <div class="hero-trust">
-      <div class="hero-trust-item"><i class="fa-solid fa-shield-halved"></i> Certificación minera</div>
-      <div class="hero-trust-item"><i class="fa-solid fa-clock"></i> Respuesta en 24 hrs</div>
-      <div class="hero-trust-item"><i class="fa-solid fa-truck-fast"></i> Despacho a todo Chile</div>
+      <div class="hero-trust-item"><i class="fa-solid fa-shield-halved"></i> Kit minero homologado</div>
+      <div class="hero-trust-item"><i class="fa-solid fa-clock"></i> Cotización en 24 hrs</div>
+      <div class="hero-trust-item"><i class="fa-solid fa-map-location-dot"></i> Antofagasta → todo Chile</div>
     </div>
   </div>
 </section>
@@ -375,8 +377,8 @@ body.loading{overflow:hidden}
 <section id="soluciones" class="sec sec-dark">
   <div class="sec-head rv">
     <div class="sec-tag">Arriendo de Equipos</div>
-    <h2 class="sec-title">Nuestras <b>Soluciones</b></h2>
-    <p class="sec-sub">Equipamiento robusto para cada necesidad energética. Desde campamentos hasta plantas de procesamiento.</p>
+    <h2 class="sec-title">Soluciones</h2>
+    <p class="sec-sub">Equipos diésel de 10 a 1.000 kVA con transporte e instalación incluidos.</p>
   </div>
 
   <div class="sol-row rv">
@@ -414,8 +416,8 @@ body.loading{overflow:hidden}
 <section id="proceso" class="sec sec-alt">
   <div class="sec-head rv">
     <div class="sec-tag">Cómo trabajamos</div>
-    <h2 class="sec-title">Del contacto a <b>la faena</b></h2>
-    <p class="sec-sub">Un proceso directo y sin burocracia. Tu equipo operando en terreno lo antes posible.</p>
+    <h2 class="sec-title">Del contacto a la faena</h2>
+    <p class="sec-sub">Así funciona. Sin burocracia, directo al grano.</p>
   </div>
   <div class="proceso-grid">
     <div class="paso rv">
@@ -466,40 +468,30 @@ body.loading{overflow:hidden}
 <!-- SECTORES -->
 <section id="sectores" class="sec sec-dark">
   <div class="sec-head rv">
-    <div class="sec-tag">Industrias</div>
-    <h2 class="sec-title">Sectores que <b>atendemos</b></h2>
-    <p class="sec-sub">Más de 200 proyectos ejecutados en las condiciones más hostiles de Chile.</p>
+    <div class="sec-tag">Dónde operamos</div>
+    <h2 class="sec-title">Sectores</h2>
+    <p class="sec-sub">+200 proyectos en el norte grande y zonas industriales de Chile.</p>
   </div>
   <div class="sectores-grid">
     <div class="sector rv stg1">
       <div class="sector-icon"><i class="fa-solid fa-mountain"></i></div>
       <div class="sector-name">Minería</div>
-      <div class="sector-desc">Gran minería, mediana minería y plantas de procesamiento. Equipos certificados para altura y condiciones extremas.</div>
+      <div class="sector-desc">Rajo abierto, minas subterráneas, plantas concentradoras y campamentos. Operamos con kit minero homologado sobre los 3.000 msnm en el desierto de Atacama.</div>
     </div>
     <div class="sector rv stg2">
       <div class="sector-icon"><i class="fa-solid fa-building"></i></div>
-      <div class="sector-name">Construcción</div>
-      <div class="sector-desc">Obras civiles, montaje industrial y proyectos de infraestructura con necesidad de energía temporal.</div>
+      <div class="sector-name">Construcción & Montaje</div>
+      <div class="sector-desc">Montaje industrial, obras civiles y ampliaciones de planta que necesitan energía temporal durante semanas o meses.</div>
     </div>
     <div class="sector rv stg3">
       <div class="sector-icon"><i class="fa-solid fa-oil-well"></i></div>
-      <div class="sector-name">Energía & Petróleo</div>
-      <div class="sector-desc">Plantas solares, subestaciones y faenas de exploración que requieren respaldo continuo.</div>
+      <div class="sector-name">Energía</div>
+      <div class="sector-desc">Respaldo eléctrico para subestaciones, plantas solares y faenas de exploración donde no llega la red.</div>
     </div>
     <div class="sector rv stg4">
-      <div class="sector-icon"><i class="fa-solid fa-ship"></i></div>
-      <div class="sector-name">Portuaria</div>
-      <div class="sector-desc">Terminales y zonas de carga donde la continuidad eléctrica es crítica para la operación.</div>
-    </div>
-    <div class="sector rv stg5">
-      <div class="sector-icon"><i class="fa-solid fa-fish"></i></div>
-      <div class="sector-name">Pesca & Acuicultura</div>
-      <div class="sector-desc">Plantas de procesamiento y frigoríficos donde un corte de energía significa pérdida total del producto.</div>
-    </div>
-    <div class="sector rv stg6">
-      <div class="sector-icon"><i class="fa-solid fa-calendar-days"></i></div>
-      <div class="sector-name">Eventos</div>
-      <div class="sector-desc">Ferias, conciertos y eventos masivos con requerimientos puntuales de potencia y distribución eléctrica.</div>
+      <div class="sector-icon"><i class="fa-solid fa-industry"></i></div>
+      <div class="sector-name">Industria general</div>
+      <div class="sector-desc">Plantas de procesamiento, puertos, frigoríficos y cualquier operación donde un corte eléctrico frena la producción.</div>
     </div>
   </div>
 </section>
@@ -508,8 +500,8 @@ body.loading{overflow:hidden}
 <section id="flota" class="sec sec-alt">
   <div class="sec-head rv">
     <div class="sec-tag">Flota Real</div>
-    <h2 class="sec-title">Equipamiento <b>ISI-COM</b></h2>
-    <p class="sec-sub">Flota propia mantenida en nuestro taller. Cada equipo sale revisado y certificado.</p>
+    <h2 class="sec-title">Nuestra flota</h2>
+    <p class="sec-sub">Todo propio, todo mantenido en nuestro taller de Antofagasta.</p>
   </div>
   <div class="fleet-grid">
     <div class="fleet-card rv stg1">
@@ -547,49 +539,42 @@ body.loading{overflow:hidden}
 <section class="sec sec-dark">
   <div class="sec-head rv">
     <div class="sec-tag">Por qué ISI-COM</div>
-    <h2 class="sec-title">Ventajas <b>competitivas</b></h2>
+    <h2 class="sec-title">Lo que nos diferencia</h2>
   </div>
   <div class="vent-grid">
     <div class="vent rv stg1">
       <div class="vent-icon"><i class="fa-solid fa-truck-moving"></i></div>
       <div class="vent-info">
-        <h4>Logística propia</h4>
-        <p>Grúa horquilla, camiones y equipo de montaje propio. No dependemos de terceros para cumplir plazos.</p>
+        <h4>Transporte y montaje propio</h4>
+        <p>Tenemos grúa Hyster, camiones y cuadrilla propia. El equipo llega a tu faena instalado y funcionando — no dependemos de terceros.</p>
       </div>
     </div>
     <div class="vent rv stg2">
       <div class="vent-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
       <div class="vent-info">
-        <h4>Taller de mantención</h4>
-        <p>Mantenciones preventivas y correctivas en nuestro taller central. Historial de servicio verificable por equipo.</p>
+        <h4>Taller propio en Antofagasta</h4>
+        <p>Cada generador pasa por overhauling completo en nuestro taller antes de salir. Mantención preventiva programada con historial por equipo.</p>
       </div>
     </div>
     <div class="vent rv stg3">
       <div class="vent-icon"><i class="fa-solid fa-helmet-safety"></i></div>
       <div class="vent-info">
-        <h4>Técnicos en terreno</h4>
-        <p>Personal certificado disponible 24/7 para diagnóstico y reparación directamente en tu faena.</p>
+        <h4>Soporte técnico 24/7</h4>
+        <p>Técnicos electromecánicos disponibles para ir a terreno cuando se necesite. Diagnóstico y reparación directa en faena.</p>
       </div>
     </div>
     <div class="vent rv stg4">
-      <div class="vent-icon"><i class="fa-solid fa-file-contract"></i></div>
+      <div class="vent-icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
       <div class="vent-info">
-        <h4>Sin intermediarios</h4>
-        <p>Flota 100% propia. Cotización directa, sin subcontratos ni sobrecostos de arriendo a terceros.</p>
+        <h4>Hechos para el norte</h4>
+        <p>Equipos preparados para polvo, salinidad costera, diferencial térmico de 30°C y altitud sobre 3.000 metros. Operamos donde otros no llegan.</p>
       </div>
     </div>
     <div class="vent rv stg5">
-      <div class="vent-icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
+      <div class="vent-icon"><i class="fa-solid fa-file-contract"></i></div>
       <div class="vent-info">
-        <h4>Aclimatados al desierto</h4>
-        <p>Equipos preparados para operar en altura, polvo abrasivo, diferencial térmico extremo y salinidad.</p>
-      </div>
-    </div>
-    <div class="vent rv stg6">
-      <div class="vent-icon"><i class="fa-solid fa-handshake"></i></div>
-      <div class="vent-info">
-        <h4>Contratos flexibles</h4>
-        <p>Arriendos diarios, semanales, mensuales o por proyecto. Escalamiento de potencia sin penalización.</p>
+        <h4>Todo directo, sin intermediarios</h4>
+        <p>La flota es nuestra, la cotización es directa y el precio no pasa por brokers. Arriendos desde un día hasta contratos de largo plazo.</p>
       </div>
     </div>
   </div>
@@ -597,16 +582,16 @@ body.loading{overflow:hidden}
 
 <!-- CTA -->
 <section class="cta-band">
-  <h2 class="rv">¿Necesitas energía para tu proyecto?</h2>
-  <p class="rv">Cotiza sin compromiso. Respuesta en menos de 24 hrs con la solución exacta para tu faena, en cualquier punto del país.</p>
-  <a href="#contacto" class="cta-main rv"><i class="fa-solid fa-bolt"></i> Cotizar Ahora</a>
+  <h2 class="rv">¿Tienes un proyecto en carpeta?</h2>
+  <p class="rv">Cuéntanos qué potencia necesitas, dónde y cuándo. Te respondemos en menos de 24 horas.</p>
+  <a href="#contacto" class="cta-main rv"><i class="fa-solid fa-bolt"></i> Cotizar</a>
 </section>
 
 <!-- CONTACTO -->
 <section id="contacto" class="sec sec-dark">
   <div class="sec-head rv">
     <div class="sec-tag">Hablemos</div>
-    <h2 class="sec-title">Solicita tu <b>cotización</b></h2>
+    <h2 class="sec-title">Cotización</h2>
   </div>
   <div class="contact-grid">
     <div class="ct-left rv">
